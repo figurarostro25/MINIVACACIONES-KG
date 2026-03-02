@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vacacionamas - Vacaciones y Escapadas</title>
+  <meta name="description" content="Vacacionamas - Promociones y tours en Panamá, Cancún, Florida, Caribe y cruceros.">
+  <style>
+    :root{
+      --accent:#0f766e;
+      --muted:#666;
+      --bg:#fff;
+      --card:#f8faf9;
+      --glass: rgba(255,255,255,0.7);
+      --max-width:1100px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#fff 0%, #fbfbff 100%);color:#111}
+    .container{max-width:var(--max-width);margin:0 auto;padding:20px}
+
+    /* header */
+    header{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo-text{font-weight:700;font-size:20px;letter-spacing:0.6px}
+    nav{display:flex;gap:12px;align-items:center}
+    .btn{background:var(--accent);color:white;padding:8px 12px;border-radius:8px;border:none;cursor:pointer;font-weight:600}
+    .btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(15,118,110,0.12)}
+    .vip{font-size:0.9rem;color:var(--muted);margin-left:8px}
+
+    /* carousel */
+    .hero{position:relative;margin:18px 0;border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(7,15,30,0.06)}
+    .carousel{display:flex;transition:transform .6s ease;width:300%}
+    .slide{flex:0 0 100%;position:relative;aspect-ratio:16/9;overflow:hidden}
+    .slide img{width:100%;height:100%;object-fit:cover;display:block}
+    .carousel-controls{position:absolute;left:12px;right:12px;bottom:14px;display:flex;justify-content:space-between;align-items:center;pointer-events:none}
+    .dots{display:flex;gap:6px;pointer-events:auto}
+    .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.6);border:1px solid rgba(0,0,0,0.06);cursor:pointer}
+    .dot.active{background:var(--accent)}
+
+    /* intro & about */
+    .intro{display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start;margin:20px 0}
+    .card{background:var(--card);padding:18px;border-radius:10px}
+    .about h2{margin:0 0 10px 0}
+    .about p{color:var(--muted);line-height:1.5}
+
+    /* sections */
+    section h3{margin:8px 0 12px 0}
+    .grid{display:grid;gap:12px}
+    .destinos{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));display:grid}
+    .destino{border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 6px 20px rgba(8,15,30,0.04)}
+    .destino img{width:100%;height:160px;object-fit:cover;display:block}
+    .destino .info{padding:10px}
+    .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+    .service{padding:12px;background:linear-gradient(180deg,rgba(255,255,255,0.7),var(--glass));border-radius:10px;min-height:110px}
+
+    /* gallery lightbox simple */
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}
+    .gallery img{width:100%;height:100px;object-fit:cover;border-radius:8px;cursor:pointer}
+
+    /* footer */
+    footer{margin-top:28px;padding:18px 0;color:var(--muted);text-align:center;font-size:0.95rem}
+
+    /* floating whatsapp */
+    .whatsapp{position:fixed;right:18px;bottom:18px;z-index:999;display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+    .whatsapp a, .fab-login{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:999px;background:#25D366;color:white;text-decoration:none;box-shadow:0 8px 20px rgba(0,0,0,0.15);font-weight:700}
+    .whatsapp .label{background:rgba(0,0,0,0.6);padding:6px 8px;border-radius:8px;color:white;font-size:0.9rem}
+    .fab-login{background:var(--accent);}
+
+    /* responsive */
+    @media(max-width:880px){
+      .intro{grid-template-columns:1fr}
+      .about{order:2}
+      .card{padding:14px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo-text">Vacacionamas</div>
+        <div class="vip">Miembro VIP</div>
+      </div>
+      <nav>
+        <button class="btn ghost" onclick="fakeLogin()">Iniciar sesión</button>
+        <button class="btn" onclick="scrollToSection('destinos')">Explorar</button>
+      </nav>
+    </header>
+
+    <!-- HERO / CAROUSEL -->
+    <div class="hero card" aria-hidden="false">
+      <div id="carousel" class="carousel">
+        <!-- Banner 1 -->
+        <div class="slide">
+          <img src="https://www.tourismpanama.com/wp-content/uploads/2019/05/sanblas-top.jpg" alt="San Blas - Vacacionamas">
+          <div style="position:absolute;left:18px;bottom:18px;color:white;text-shadow:0 6px 18px rgba(0,0,0,0.5)">
+            <h1 style="margin:0;font-size:24px">Escápate a San Blas</h1>
+            <p style="margin:6px 0 0">Islas paradisíacas, playas y cultura Guna — paquetes desde Panama City</p>
+          </div>
+        </div>
+
+        <!-- Banner 2 -->
+        <div class="slide">
+          <img src="https://landedtravel.com/wp-content/uploads/2017/07/bocas-del-toro-panama.jpg" alt="Bocas del Toro - Vacacionamas">
+          <div style="position:absolute;left:18px;bottom:18px;color:white;text-shadow:0 6px 18px rgba(0,0,0,0.5)">
+            <h1 style="margin:0;font-size:24px">Bocas del Toro</h1>
+            <p style="margin:6px 0 0">Snorkel, surf y relax en playas de ensueño</p>
+          </div>
+        </div>
+
+        <!-- Banner 3 -->
+        <div class="slide">
+          <img src="https://www.enjoypanama.com/wp-content/uploads/2013/11/playa-blanca-1.jpg" alt="Playa Blanca - Vacacionamas">
+          <div style="position:absolute;left:18px;bottom:18px;color:white;text-shadow:0 6px 18px rgba(0,0,0,0.5)">
+            <h1 style="margin:0;font-size:24px">Playa Blanca & Resorts</h1>
+            <p style="margin:6px 0 0">Hoteles frente al mar, todo incluido y relajación total</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-controls">
+        <div class="dots" id="dots"></div>
+        <div style="color:white;font-size:13px;padding:6px 10px;background:rgba(0,0,0,0.35);border-radius:8px">Vacacionamas • Tus vacaciones, hoy</div>
+      </div>
+    </div>
+
+    <!-- Intro / About -->
+    <div class="intro">
+      <div class="about card">
+        <h2>Sobre Vacacionamas</h2>
+        <p>
+          Vacacionamas conecta a viajeros con los mejores destinos: Panamá (Playa Blanca, Bocas del Toro, San Blas, Isla Contadora),
+          Cancún, Florida, cruceros por el Caribe y más. Diseñamos paquetes, tours y experiencias de bienestar para que regreses renovado.
+        </p>
+
+        <h3>Qué ofrecemos</h3>
+        <ul style="color:var(--muted);line-height:1.6">
+          <li>Paquetes y promociones a hoteles y resorts</li>
+          <li>Tours one-day a islas y excursiones</li>
+          <li>Cruceros por el Caribe</li>
+          <li>Servicios de bienestar y masajes en destino</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Reserva rápida</h3>
+        <p style="color:var(--muted);margin-bottom:12px">¿Necesitas ayuda? Escríbenos por WhatsApp y te armamos tu itinerario.</p>
+        <button class="btn" onclick="openWhatsApp()">Reservar por WhatsApp</button>
+      </div>
+    </div>
+
+    <!-- Destinos -->
+    <section id="destinos">
+      <h3>Destinos populares</h3>
+      <div class="destinos">
+        <div class="destino">
+          <img src="https://www.enjoypanama.com/wp-content/uploads/2013/11/playa-blanca-1.jpg" alt="Playa Blanca">
+          <div class="info"><strong>Playa Blanca</strong><p style="margin:6px 0;color:var(--muted)">Resorts y playas en Río Hato.</p></div>
+        </div>
+        <div class="destino">
+          <img src="https://landedtravel.com/wp-content/uploads/2017/07/bocas-del-toro-panama.jpg" alt="Bocas del Toro">
+          <div class="info"><strong>Bocas del Toro</strong><p style="margin:6px 0;color:var(--muted)">Islas, surf y biodiversidad.</p></div>
+        </div>
+        <div class="destino">
+          <img src="https://www.tourismpanama.com/wp-content/uploads/2019/05/sanblas-top.jpg" alt="San Blas">
+          <div class="info"><strong>San Blas</strong><p style="margin:6px 0;color:var(--muted)">Playas privadas y cultura Guna.</p></div>
+        </div>
+        <div class="destino">
+          <img src="https://panamaconcierge.com/wp-content/uploads/2013/12/isla-zapatilla.jpg" alt="Isla Contadora / Zapatilla">
+          <div class="info"><strong>Isla Contadora</strong><p style="margin:6px 0;color:var(--muted)">Escapadas de fin de semana.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tours / Pasadías -->
+    <section style="margin-top:18px">
+      <h3>Tours & Pasadías</h3>
+      <div class="card grid" style="padding:12px">
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <div class="service">
+            <strong>Tour Isla</strong>
+            <p style="color:var(--muted)">Excursión con snorkeling, almuerzo y traslado.</p>
+          </div>
+          <div class="service">
+            <strong>Paseo en lancha privada</strong>
+            <p style="color:var(--muted)">Itinerarios flexibles y guía local.</p>
+          </div>
+          <div class="service">
+            <strong>Crucero de día</strong>
+            <p style="color:var(--muted)">Salida desde ciudad/puerto.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bienestar -->
+    <section style="margin-top:18px">
+      <h3>Bienestar en Vacaciones</h3>
+      <p style="color:var(--muted)">Tratamientos y masajes diseñados para relajarte durante tu viaje.</p>
+      <div class="services" style="margin-top:10px">
+        <div class="service">
+          <strong>Masaje relajante (60 min)</strong>
+          <p style="color:var(--muted)">Recupera energías tras el viaje.</p>
+        </div>
+        <div class="service">
+          <strong>Masaje terapéutico</strong>
+          <p style="color:var(--muted)">Alivio de tensiones musculares.</p>
+        </div>
+        <div class="service">
+          <strong>Tratamientos corporales rápidos</strong>
+          <p style="color:var(--muted)">Mascarillas, exfoliación y wrap de agua salina.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galería -->
+    <section style="margin-top:18px">
+      <h3>Galería por destino</h3>
+      <div class="gallery card" style="padding:10px">
+        <img src="https://www.enjoypanama.com/wp-content/uploads/2013/11/playa-blanca-1.jpg" alt="gal1" onclick="openLightbox(this.src)">
+        <img src="https://landedtravel.com/wp-content/uploads/2017/07/bocas-del-toro-panama.jpg" alt="gal2" onclick="openLightbox(this.src)">
+        <img src="https://www.tourismpanama.com/wp-content/uploads/2019/05/sanblas-top.jpg" alt="gal3" onclick="openLightbox(this.src)">
+        <img src="https://cruisespotlight.com/wp-content/uploads/2020/03/voyager.jpg" alt="gal4" onclick="openLightbox(this.src)">
+        <img src="https://panamaconcierge.com/wp-content/uploads/2013/12/isla-zapatilla.jpg" alt="gal5" onclick="openLightbox(this.src)">
+      </div>
+    </section>
+
+    <footer>
+      © <strong>Vacacionamas</strong> — Promociones y reservas. Tel/WhatsApp: <a href="#" onclick="openWhatsApp();return false;">+507 6246-4619</a>
+    </footer>
+  </div>
+
+  <!-- Floating WhatsApp + fake login -->
+  <div class="whatsapp" aria-hidden="false">
+    <div class="label" style="background:rgba(0,0,0,0.65);color:white;font-weight:700">Soporte</div>
+    <a class="fab-login" href="#" onclick="fakeLogin();return false;">Iniciar sesión</a>
+    <a id="waBtn" class="fab" href="#" title="Chatear por WhatsApp" onclick="openWhatsApp();return false;" style="text-decoration:none;background:#25D366;color:white;border-radius:999px;padding:12px 14px;display:inline-flex;align-items:center;gap:10px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.52 3.48A11.85 11.85 0 0 0 12.03.5 11.98 11.98 0 0 0 .5 12c0 2.12.56 4.12 1.63 5.86L.5 23.5l5.9-1.56a11.98 11.98 0 0 0 5.63 1.45h.01c6.6 0 11.98-5.37 11.98-11.98 0-3.2-1.25-6.18-3.57-8.43z" fill="white"/></svg>
+      WhatsApp • +507 6246-4619
+    </a>
+  </div>
+
+  <!-- Lightbox (simple) -->
+  <div id="lightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);align-items:center;justify-content:center;z-index:9999" onclick="closeLightbox()">
+    <img id="lightboxImg" src="" alt="imagen" style="max-width:95%;max-height:88%;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,0.6)">
+  </div>
+
+  <script>
+    /* Carousel */
+    const carousel = document.getElementById('carousel');
+    const slides = document.querySelectorAll('.slide');
+    const dotsWrap = document.getElementById('dots');
+    let idx = 0, total = slides.length;
+
+    function renderDots(){
+      dotsWrap.innerHTML = '';
+      for(let i=0;i<total;i++){
+        const d = document.createElement('div');
+        d.className='dot'+(i===0?' active':'');
+        d.addEventListener('click',(()=>{goTo(i)}));
+        dotsWrap.appendChild(d);
+      }
+    }
+    function updateCarousel(){
+      carousel.style.transform = `translateX(-${idx*100}%)`;
+      const dots = document.querySelectorAll('.dot');
+      dots.forEach((dd,i)=> dd.classList.toggle('active', i===idx));
+    }
+    function goTo(i){ idx = i; updateCarousel(); resetAuto(); }
+    function next(){ idx = (idx+1)%total; updateCarousel(); }
+    let auto = setInterval(next, 5000);
+    function resetAuto(){ clearInterval(auto); auto = setInterval(next, 5000); }
+
+    renderDots();
+    updateCarousel();
+
+    /* WhatsApp open */
+    function openWhatsApp(){
+      // usa formato internacional +507
+      const phone = '50762464619';
+      const url = `https://wa.me/${phone}`;
+      window.open(url, '_blank');
+    }
+
+    /* fake login */
+    function fakeLogin(){
+      alert('Función de inicio de sesión temporal. Próximamente: panel Miembro VIP.');
+    }
+
+    /* lightbox */
+    function openLightbox(src){
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightbox').style.display = 'flex';
+    }
+    function closeLightbox(){ document.getElementById('lightbox').style.display = 'none'; }
+
+    /* scroll helper */
+    function scrollToSection(id){
+      const el = document.getElementById(id);
+      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+  </script>
+</body>
+</html>
