@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minivacaciones & Destinos | Panamá</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-dark: #0f172a; 
@@ -17,12 +17,12 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Inter', sans-serif; /* Fuente cambiada para mejor lectura */
             background-color: var(--bg-color);
             color: var(--text-main);
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            line-height: 1.6; /* Interlineado mejorado */
         }
 
         .container {
@@ -32,10 +32,10 @@
             padding-bottom: 90px;
         }
 
-        /* Cabecera e Imagen */
+        /* Cabecera e Imagen (Enlace robusto de Unsplash) */
         .hero-image {
             width: 100%;
-            height: 220px;
+            height: 200px;
             object-fit: cover;
             border-radius: 16px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
@@ -50,92 +50,149 @@
         .logo-premium {
             background: linear-gradient(135deg, var(--primary-dark), var(--primary));
             color: var(--white);
-            width: 90px;
-            height: 90px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 700;
-            margin: -70px auto 15px auto;
-            box-shadow: 0 8px 20px rgba(30,58,138,0.4);
+            margin: -60px auto 15px auto;
+            box-shadow: 0 8px 20px rgba(30,58,138,0.3);
             border: 4px solid var(--white);
             position: relative;
         }
 
         .title {
             color: var(--primary-dark);
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 700;
             margin: 0 0 8px 0;
+            letter-spacing: -0.5px;
         }
 
         .subtitle {
             color: #64748b;
             font-size: 13px;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             font-weight: 500;
         }
 
-        /* Botones de Traducción y Pagos */
+        /* Botones de Traducción */
         .translate-container {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
             margin-bottom: 25px;
         }
 
         .btn-lang {
             background: var(--white);
             border: 1px solid #cbd5e1;
-            padding: 8px 16px;
+            padding: 7px 14px;
             border-radius: 8px;
             font-family: inherit;
             font-size: 12px;
             font-weight: 600;
             color: var(--text-main);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
 
+        /* Pagos */
         .payment-banner {
             background: linear-gradient(135deg, var(--accent), #115e59);
             color: var(--white);
-            padding: 18px;
+            padding: 15px;
             border-radius: 12px;
             text-align: center;
-            margin-bottom: 30px;
-            box-shadow: 0 6px 15px rgba(15, 118, 110, 0.2);
+            margin-bottom: 25px;
+            box-shadow: 0 6px 15px rgba(15, 118, 110, 0.15);
+            font-size: 14px;
         }
 
         /* Tarjetas de Secciones */
         .card {
             background: var(--white);
             border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.04);
-            margin-bottom: 25px;
-            border-top: 4px solid var(--primary);
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            margin-bottom: 20px;
+            border-top: 3px solid var(--primary);
         }
 
         .card h2 {
             color: var(--primary);
             margin-top: 0;
-            font-size: 19px;
+            font-size: 18px;
+            font-weight: 700;
             border-bottom: 2px solid var(--light-gray);
-            padding-bottom: 12px;
+            padding-bottom: 10px;
             margin-bottom: 15px;
         }
 
-        .card h3 {
+        /* Pestaña Desplegable (Accordion) */
+        .details-presentation {
+            background: var(--light-gray);
+            border-radius: 12px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        .details-presentation summary {
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: 600;
             color: var(--primary-dark);
-            font-size: 16px;
+            list-style: none; /* Quita el triángulo por defecto */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 15px;
+        }
+
+        /* Triángulo personalizado */
+        .details-presentation summary::after {
+            content: '+';
+            font-size: 18px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .details-presentation[open] summary::after {
+            content: '-';
+        }
+
+        .details-content {
+            padding: 0 20px 20px 20px;
+            font-size: 14px;
+            color: var(--text-main);
+            text-align: justify;
+        }
+
+        .details-content p {
+            margin-top: 0;
             margin-bottom: 10px;
         }
 
-        /* Lista de Productos/Servicios */
+        /* Sección Viaja Cómodo con Icono SUV */
+        .travel-comfort {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .suv-icon {
+            width: 45px;
+            height: 45px;
+            flex-shrink: 0;
+            fill: var(--primary-dark); /* Color oscuro del icono */
+        }
+
+        /* Listas de Servicios */
         .service-list {
             list-style: none;
             padding: 0;
@@ -143,26 +200,32 @@
         }
 
         .service-list li {
-            padding: 12px 0;
+            padding: 10px 0;
             border-bottom: 1px solid var(--light-gray);
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
         }
 
         .service-list li:last-child {
             border-bottom: none;
         }
 
+        .service-name {
+            font-weight: 500;
+        }
+
         .service-price {
             font-weight: 700;
             color: var(--accent);
-            margin-top: 4px;
+            white-space: nowrap;
         }
 
         /* Botones de Acción */
         .btn-action {
             display: inline-block;
-            background-color: var(--accent); /* Verde elegante, no chillón */
+            background-color: var(--accent);
             color: white;
             padding: 12px 20px;
             border-radius: 8px;
@@ -172,116 +235,80 @@
             margin-top: 15px;
             width: 100%;
             box-sizing: border-box;
-            transition: background 0.3s ease;
+            transition: background 0.2s ease;
+            font-size: 14px;
         }
 
-        .btn-action:hover {
-            background-color: #0d9488;
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        /* Números de Interés (Elegante) */
+        /* Números de Interés */
         .interest-section {
             background: var(--white);
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.02);
             border: 1px solid #e2e8f0;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .interest-header {
             background: var(--primary-dark);
             color: white;
-            padding: 15px 20px;
+            padding: 12px 20px;
             font-weight: 600;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-size: 15px;
         }
 
         .interest-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            padding: 20px;
+            gap: 12px;
+            padding: 15px;
         }
 
         .interest-item {
             background: var(--light-gray);
-            padding: 12px;
+            padding: 10px;
             border-radius: 8px;
-            border-left: 4px solid var(--primary);
+            border-left: 3px solid var(--primary);
             display: flex;
             flex-direction: column;
         }
 
-        .interest-name {
-            font-size: 12px;
-            color: var(--text-main);
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .interest-number {
-            font-size: 18px;
-            color: var(--primary);
-            font-weight: 700;
-        }
+        .interest-name { font-size: 11px; font-weight: 600; text-transform: uppercase; }
+        .interest-number { font-size: 16px; color: var(--primary); font-weight: 700; }
 
         /* Footer */
         .footer {
             text-align: center;
-            padding: 20px;
+            padding: 20px 0;
             color: #64748b;
-            font-size: 14px;
+            font-size: 13px;
             border-top: 1px solid #cbd5e1;
-            margin-top: 20px;
         }
 
-        .footer strong {
-            color: var(--primary-dark);
-            display: block;
-            margin-bottom: 5px;
-        }
+        .footer strong { color: var(--primary-dark); display: block; }
 
-        /* Botón Flotante de WhatsApp */
+        /* WhatsApp */
         .whatsapp-float {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
+            bottom: 20px;
+            right: 20px;
             background-color: #25D366;
             color: white;
-            padding: 12px 24px;
+            padding: 12px 20px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 15px;
+            font-size: 14px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-            transition: transform 0.3s ease;
+            gap: 8px;
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
             z-index: 1000;
-        }
-
-        .whatsapp-float:hover {
-            transform: translateY(-5px);
         }
         
         @media (max-width: 600px) {
-            .interest-grid {
-                grid-template-columns: 1fr;
-            }
-            .card {
-                padding: 20px;
-            }
+            .interest-grid { grid-template-columns: 1fr; }
+            .service-list li { flex-direction: column; align-items: flex-start; gap: 4px; }
         }
     </style>
 </head>
@@ -289,12 +316,12 @@
 
     <div class="container">
         
-        <img src="https://images.unsplash.com/photo-1517505973322-297f62e830c2?q=80&w=1000&auto=format&fit=crop" alt="Ciudad de Panamá" class="hero-image">
+        <img src="https://images.unsplash.com/photo-1590710643916-2f0f498e826b?q=80&w=1000&auto=format&fit=crop" alt="Panama City Skyline" class="hero-image">
 
         <div class="header">
             <div class="logo-premium">M&D</div>
             <h1 class="title">Minivacaciones & Destinos</h1>
-            <div class="subtitle">Reserva Hospedajes • Transporte Privado • Negocios</div>
+            <div class="subtitle">Hospedajes • Transporte VIP • Soluciones de Negocio</div>
         </div>
 
         <div class="translate-container">
@@ -303,66 +330,64 @@
         </div>
 
         <div class="payment-banner">
-            <h3>¡Acepto pagos con!</h3>
-            <div style="font-weight: 700; font-size: 14px;">💳 Visa | 📱 Yappi | 💵 Cash</div>
+            <strong>Acepto pagos con:</strong> 💳 Visa | 📱 Yappi | 💵 Efectivo
         </div>
 
-        <div class="card">
-            <h2>¡Damas y caballeros, bienvenidos a Panamá!</h2>
-            <p>Mi nombre es Gasper Rodriguez, y estoy aquí para que su experiencia sea cómoda, fluida y bien acompañada, ya sea por turismo o negocios.</p>
-            <p>Pueden contar conmigo como su apoyo local: traslados, recorridos, orientación en la ciudad o simplemente alguien de confianza con quien conversar. Mi objetivo es que se sientan respaldados en todo momento durante su estadía.</p>
-            <p>Cuento con un perfil integral enfocado en soluciones: desarrollo sitios web en tiempo récord, brindo asesoría en ventas y negocios, apoyo en la creación de ideas, resolución de problemas y acompañamiento con enfoque humano.</p>
-            <p>Más que múltiples servicios, ofrezco criterio, experiencia y confianza en un solo contacto.</p>
-            <p>Incluso después de su viaje, quedo a la orden para gestiones digitales, asesorías y apoyo en reservas internacionales.</p>
-            <br>
-            <div style="text-align: center;">
-                <strong>Estoy aquí para ayudarte. Bienvenido, cuenta conmigo 🤝</strong>
+        <details class="details-presentation">
+            <summary>
+                ¡Bienvenidos a Panamá! Conoce a Gasper R.
+            </summary>
+            <div class="details-content">
+                <p>Soy Gasper Rodriguez, su aliado local para una estadía exitosa, ya sea por turismo o negocios.</p>
+                <p>Ofrezco un <strong>perfil integral enfocado en soluciones:</strong> traslados y recorridos de confort, orientación experta en la ciudad y soporte continuo.</p>
+                <p>Además, brindo asesoría en ventas, desarrollo web rápido e ideas de negocio. Más que múltiples servicios, ofrezco criterio, experiencia y confianza en un solo contacto.</p>
+                <p>Bienvenido, cuenta conmigo 🤝</p>
             </div>
-        </div>
+        </details>
 
         <div class="card">
             <h2>Viaja Cómodo</h2>
-            <p><strong>Uber Confort:</strong> Toyota Corolla 2025. Camioneta con suspensión más silenciosa, mayor capacidad de peso y el máximo confort para tus traslados.</p>
+            <div class="travel-comfort">
+                <svg class="suv-icon" viewBox="0 0 640 512"><path d="M544 192h-16.1l-34.1-68.1c-14-27.9-42.3-46.9-74.8-46.9H160c-32.5 0-60.8 19-74.8 46.9L51.1 192H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h32c0 26.5 21.5 48 48 48s48-21.5 48-48h192c0 26.5 21.5 48 48 48s48-21.5 48-48h32c26.5 0 48-21.5 48-48V240c0-26.5-21.5-48-48-48zM128 448c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32zm160-160H112l32-64h144zm0 64H112l32-64h144zm192 128c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32zm32-128H352l32-64h144zm0 64H352l32-64h144z"/></svg>
+                <p style="margin: 0; font-size: 14px;"><strong>Toyota Corolla Cross Gris (Uber Confort)</strong>. Vehículo moderno, silencioso y con el máximo confort para tus traslados.</p>
+            </div>
         </div>
 
         <div class="card" style="text-align: center;">
             <h2>Consulta tarifas con Gasper</h2>
-            <p>Me puedes chatear con tranquilidad y confianza, te atenderé cordialmente. No siempre se gana dinero, también se gana amistad y gratitud.</p>
-            <p><em>Si hablas español o si hablas poquito español, me llamas o escribes.</em></p>
-            
-            <a href="https://wa.me/50762464619" class="btn-action btn-outline" target="_blank">¿Deseas chatear con alguien y consultar cosas?</a>
-            <a href="https://wa.me/50762464619" class="btn-action" target="_blank">Hablar con Gasper</a>
+            <p style="font-size: 14px; margin-bottom: 20px;">Chateame con confianza, te atenderé cordialmente.</p>
+            <a href="https://wa.me/50762464619" class="btn-action" target="_blank" style="background-color: var(--primary);">Hablar con Gasper</a>
         </div>
 
         <div class="card">
-            <h2>Servicios y Productos en Venta</h2>
+            <h2>Catálogo de Servicios</h2>
             
-            <h3>💆‍♂️ Bienestar y Estética</h3>
+            <h3 style="font-size: 15px; color: var(--primary-dark); margin-top: 5px;">💆‍♂️ Bienestar y Estética</h3>
             <ul class="service-list">
-                <li>Masajes Relajantes <span class="service-price">$35 (30 min) | $65 (60 min)</span></li>
-                <li>Limpiezas faciales <span class="service-price">Desde $35</span></li>
-                <li>Masaje reductor con hidrolipoclasia (bajar rápido de peso) <span class="service-price">$200</span></li>
-                <li><em>Otros servicios estéticos: Consultar</em></li>
+                <li><span class="service-name">Masajes Relajantes (30 min)</span> <span class="service-price">$35</span></li>
+                <li><span class="service-name">Masajes Relajantes (60 min)</span> <span class="service-price">$65</span></li>
+                <li><span class="service-name">Limpiezas faciales</span> <span class="service-price">Desde $35</span></li>
+                <li><span class="service-name">Masaje reductor + hidrolipoclasia</span> <span class="service-price">$200</span></li>
             </ul>
 
-            <h3 style="margin-top: 25px;">🎧 Equipos Tecnológicos</h3>
+            <h3 style="font-size: 15px; color: var(--primary-dark); margin-top: 25px;">🎧 Tecnología y Equipos</h3>
             <ul class="service-list">
-                <li>Bocinas para piscina (con micrófono, resistentes al agua) <span class="service-price">$25</span></li>
-                <li>Combo dúo doble poder (excelente sonido y batería de larga duración) <span class="service-price">$55</span></li>
-                <li>Audífonos, computadoras y otros artículos <span class="service-price">Venta por pedido (Entrega el mismo día L-V, 8am a 2pm)</span></li>
+                <li><span class="service-name">Bocinas para piscina (resistentes)</span> <span class="service-price">$25</span></li>
+                <li><span class="service-name">Combo dúo doble poder (sonido + batería)</span> <span class="service-price">$55</span></li>
+                <li><span class="service-name">Audífonos y computadoras</span> <span class="service-price">Venta por pedido</span></li>
             </ul>
 
-            <h3 style="margin-top: 25px;">🛻 Transporte y Tours</h3>
+            <h3 style="font-size: 15px; color: var(--primary-dark); margin-top: 25px;">🛻 Transporte y Tours</h3>
             <ul class="service-list">
-                <li>Transporte en pick up de carga (traslado pesado en vehículo 4x4) <span class="service-price">Desde $25 en ciudad</span></li>
-                <li>Tours <span class="service-price">Precios negociables</span></li>
+                <li><span class="service-name">Transporte en pick up carga 4x4</span> <span class="service-price">Desde $25</span></li>
+                <li><span class="service-name">Tours personalizados</span> <span class="service-price">Negociable</span></li>
             </ul>
         </div>
 
         <div class="card" style="text-align: center;">
             <h2>Préstamos Personales</h2>
-            <p>¿Eres panameño(a) y necesitas un préstamo personal? Solicítalo conmigo.</p>
-            <a href="https://wa.me/50762464619?text=Estoy%20interesado%20en%20un%20prestamo%20personal" class="btn-action" target="_blank">Estoy interesado en un préstamo personal</a>
+            <p style="font-size: 14px; margin-bottom: 15px;">Solo para ciudadanos panameños(as). Solicítalo conmigo.</p>
+            <a href="https://wa.me/50762464619?text=Estoy%20interesado%20en%20un%20prestamo%20personal" class="btn-action" target="_blank">Consultar por préstamo</a>
         </div>
 
         <div class="interest-section">
@@ -370,34 +395,23 @@
                 📱 Números de Interés (Panamá)
             </div>
             <div class="interest-grid">
-                <div class="interest-item">
-                    <span class="interest-name">Policía Nacional</span>
-                    <span class="interest-number">104</span>
-                </div>
-                <div class="interest-item">
-                    <span class="interest-name">Ambulancia (SUME)</span>
-                    <span class="interest-number">911</span>
-                </div>
-                <div class="interest-item">
-                    <span class="interest-name">Bomberos</span>
-                    <span class="interest-number">103</span>
-                </div>
-                <div class="interest-item">
-                    <span class="interest-name">Protección Civil</span>
-                    <span class="interest-number">335</span>
-                </div>
+                <div class="interest-item"><span class="interest-name">Policía Nacional</span> <span class="interest-number">104</span></div>
+                <div class="interest-item"><span class="interest-name">Ambulancia (SUME)</span> <span class="interest-number">911</span></div>
+                <div class="interest-item"><span class="interest-name">Bomberos</span> <span class="interest-number">103</span></div>
+                <div class="interest-item"><span class="interest-name">Protección Civil</span> <span class="interest-number">335</span></div>
             </div>
         </div>
 
         <div class="footer">
             <strong>Minivacaciones & Destinos</strong>
-            Para llamadas directas urgentes: <strong>6478-7049</strong>
+            Para urgencias (llamada directa): 6478-7049
         </div>
 
     </div>
 
     <a href="https://wa.me/50762464619" class="whatsapp-float" target="_blank">
-        WhatsApp
+        <svg style="width:18px;height:18px" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.18 3.03 14.69 2 12.04 2m0 1.88c2.15 0 4.17.84 5.7 2.36a8.03 8.03 0 0 1 2.33 5.67c0 4.44-3.61 8.05-8.03 8.05-1.46 0-2.89-.4-4.13-1.15l-.3-.18-3.07.81.82-2.99-.19-.31a8.04 8.04 0 0 1-1.18-4.22c0-4.44 3.6-8.04 8.05-8.04m-3.46 4.3c-.13 0-.31.05-.48.23-.17.18-.65.63-.65 1.54 0 .92.67 1.8.76 1.93.09.12 1.3 2.05 3.19 2.87.45.2.8.31 1.07.4.45.14.86.12 1.18.07.36-.05 1.1-.45 1.26-.88.15-.43.15-.81.11-.88-.04-.07-.16-.12-.33-.21-.17-.08-1.1-.54-1.27-.6-.17-.06-.29-.08-.42.08-.12.17-.48.6-.59.72-.11.13-.22.14-.39.06-.17-.08-.71-.26-1.35-.83-.5-.45-.83-.99-.93-1.16-.1-.17-.01-.26.08-.35.08-.08.17-.2.25-.29.08-.1.11-.17.16-.29.05-.12.03-.23-.01-.32-.04-.09-.42-1.01-.58-1.38-.15-.37-.32-.32-.42-.32z"/></svg>
+        Chat por WhatsApp
     </a>
 
 </body>
