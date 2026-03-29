@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minivacaciones & Destinos | Panamá</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-dark: #0f172a; 
@@ -68,7 +68,7 @@
         .title {
             color: var(--primary-dark);
             font-size: 24px;
-            font-weight: 700;
+            font-weight: 800;
             margin: 0 0 8px 0;
             letter-spacing: -0.5px;
         }
@@ -78,7 +78,7 @@
             font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         /* Botones de Traducción */
@@ -128,13 +128,13 @@
             color: var(--primary);
             margin-top: 0;
             font-size: 18px;
-            font-weight: 700;
+            font-weight: 800;
             border-bottom: 2px solid var(--light-gray);
             padding-bottom: 10px;
             margin-bottom: 15px;
         }
 
-        /* Pestañas Desplegables Generales (Acordeón) */
+        /* Acordeones */
         .accordion {
             background: var(--light-gray);
             border-radius: 12px;
@@ -146,7 +146,7 @@
         .accordion summary {
             padding: 15px 20px;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--primary-dark);
             list-style: none;
             display: flex;
@@ -159,16 +159,11 @@
             content: '+';
             font-size: 18px;
             color: var(--primary);
-            font-weight: 700;
+            font-weight: 800;
         }
 
-        .accordion[open] summary {
-            border-bottom: 1px solid #cbd5e1;
-        }
-
-        .accordion[open] summary::after {
-            content: '-';
-        }
+        .accordion[open] summary { border-bottom: 1px solid #cbd5e1; }
+        .accordion[open] summary::after { content: '-'; }
 
         .accordion-content {
             padding: 15px 20px;
@@ -177,13 +172,8 @@
             background: var(--white);
         }
 
-        .accordion-content p {
-            margin-top: 0;
-            margin-bottom: 10px;
-            text-align: justify;
-        }
+        .accordion-content p { margin-top: 0; margin-bottom: 10px; text-align: justify; }
 
-        /* Sección Viaja Cómodo con Icono SUV */
         .travel-comfort {
             display: flex;
             align-items: center;
@@ -197,7 +187,7 @@
             fill: var(--primary-dark);
         }
 
-        /* Listas de Servicios */
+        /* ESTRUCTURA TIPO APP PARA LISTAS */
         .service-list {
             list-style: none;
             padding: 0;
@@ -205,58 +195,108 @@
         }
 
         .service-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid var(--light-gray);
+            padding: 15px 0;
+            border-bottom: 1px solid #e2e8f0;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-between; /* Texto a la izq, precio a la der */
             align-items: center;
-            font-size: 14px;
         }
 
         .service-list li:last-child {
             border-bottom: none;
         }
 
+        .service-info {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding-right: 15px;
+        }
+
         .service-name {
-            font-weight: 600;
+            font-weight: 700;
             color: var(--primary-dark);
+            font-size: 15px;
+            line-height: 1.3;
+        }
+
+        .service-desc {
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 4px;
+            line-height: 1.2;
         }
 
         .service-price {
-            font-weight: 700;
-            color: var(--accent);
+            font-weight: 800;
+            color: var(--primary); /* Azul resaltado */
+            font-size: 20px;
             white-space: nowrap;
             text-align: right;
-            font-size: 15px;
         }
-
-        .price-subtext {
-            font-size: 11px;
-            font-weight: normal;
+        
+        .service-price small {
+            font-size: 12px;
+            font-weight: 500;
             color: #64748b;
         }
 
-        /* Botones de Acción */
+        /* Botones */
         .btn-action {
             display: inline-block;
             background-color: var(--accent);
             color: white;
-            padding: 12px 20px;
-            border-radius: 8px;
+            padding: 14px 20px;
+            border-radius: 10px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             text-align: center;
             margin-top: 15px;
             width: 100%;
             box-sizing: border-box;
             transition: background 0.2s ease;
-            font-size: 14px;
+            font-size: 15px;
         }
 
         .btn-outline {
             background-color: transparent;
             color: var(--primary);
             border: 2px solid var(--primary);
+        }
+
+        /* SECCIÓN PRÉSTAMOS - GIGANTE Y LLAMATIVA */
+        .prestamo-card {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            border-radius: 16px;
+            padding: 35px 25px;
+            text-align: center;
+            color: white;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(30,58,138,0.3);
+        }
+
+        .prestamo-card h2 {
+            color: white;
+            font-size: 24px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: 800;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 15px;
+        }
+
+        .prestamo-card p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #e2e8f0;
+        }
+
+        .prestamo-card .btn-action {
+            background-color: #25D366; /* Verde WhatsApp */
+            font-size: 18px;
+            padding: 16px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            color: #fff;
         }
 
         /* Números de Interés */
@@ -294,7 +334,7 @@
         }
 
         .interest-name { font-size: 11px; font-weight: 600; text-transform: uppercase; }
-        .interest-number { font-size: 16px; color: var(--primary); font-weight: 700; }
+        .interest-number { font-size: 16px; color: var(--primary); font-weight: 800; }
 
         /* Footer */
         .footer {
@@ -325,11 +365,15 @@
             box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
             z-index: 1000;
         }
+
+        /* Gastronomía Banner */
+        .gastro-card {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+        }
         
         @media (max-width: 600px) {
             .interest-grid { grid-template-columns: 1fr; }
-            .service-list li.stack-mobile { flex-direction: column; align-items: flex-start; gap: 4px; }
-            .service-list li.stack-mobile .service-price { text-align: left; }
         }
     </style>
 </head>
@@ -356,15 +400,12 @@
         </div>
 
         <details class="accordion">
-            <summary>
-                ¡Damas y caballeros, bienvenidos a Panamá!
-            </summary>
+            <summary>¡Damas y caballeros, bienvenidos a Panamá!</summary>
             <div class="accordion-content">
                 <p>Mi nombre es Gasper Rodriguez, y estoy aquí para que su experiencia sea cómoda, fluida y bien acompañada, ya sea por turismo o negocios.</p>
-                <p>Pueden contar conmigo como su apoyo local: traslados, recorridos, orientación en la ciudad o simplemente alguien de confianza con quien conversar. Mi objetivo es que se sientan respaldados en todo momento durante su estadía.</p>
-                <p>Cuento con un perfil integral enfocado en soluciones: desarrollo sitios web en tiempo récord, brindo asesoría en ventas y negocios, apoyo en la creación de ideas, resolución de problemas y acompañamiento con enfoque humano.</p>
-                <p>Más que múltiples servicios, ofrezco criterio, experiencia y confianza en un solo contacto. Incluso después de su viaje, quedo a la orden para gestiones digitales, asesorías y apoyo en reservas internacionales.</p>
-                <p style="text-align: center; font-weight: 600; margin-top: 15px; color: var(--primary-dark);">Estoy aquí para ayudarte. Bienvenido, cuenta conmigo 🤝</p>
+                <p>Pueden contar conmigo como su apoyo local: traslados, recorridos, orientación en la ciudad o simplemente alguien de confianza con quien conversar.</p>
+                <p>Cuento con un perfil integral enfocado en soluciones: desarrollo sitios web en tiempo récord, brindo asesoría en ventas y negocios, resolución de problemas y acompañamiento.</p>
+                <p style="text-align: center; font-weight: 700; margin-top: 15px; color: var(--primary-dark);">Estoy aquí para ayudarte. Bienvenido, cuenta conmigo 🤝</p>
             </div>
         </details>
 
@@ -378,74 +419,94 @@
 
         <div class="card" style="text-align: center;">
             <h2>Consulta tarifas con Gasper</h2>
-            <p style="font-size: 14px; margin-bottom: 20px;">Me puedes chatear con tranquilidad y confianza, te atenderé cordialmente no siempre se gana dinero tambien se gana amistad y gratitud.<br><br><em>Si hablas español o si hablas poquito español me llamas o escribes.</em></p>
-            <a href="https://wa.me/50762464619" class="btn-action btn-outline" target="_blank">¿Deseas chatear con alguien y consultar cosas?</a>
+            <p style="font-size: 14px; margin-bottom: 20px;">Me puedes chatear con tranquilidad y confianza, te atenderé cordialmente. No siempre se gana dinero, también se gana amistad y gratitud.<br><br><em>Si hablas español o si hablas poquito español me llamas o escribes.</em></p>
+            <a href="https://wa.me/50762464619" class="btn-action btn-outline" target="_blank">¿Deseas chatear con alguien?</a>
             <a href="https://wa.me/50762464619" class="btn-action" target="_blank" style="background-color: var(--primary);">Hablar con Gasper</a>
         </div>
 
         <div class="card">
-            <h2>Servicios y Productos en venta</h2>
-            
-            <h3 style="font-size: 15px; color: var(--primary-dark); margin-top: 5px;">🛻 Transporte y Tours</h3>
+            <h2 style="margin-bottom: 5px;">🛻 Transporte y Tours</h2>
             
             <ul class="service-list" style="margin-bottom: 20px;">
-                <li style="flex-direction: column; align-items: flex-start;">
-                    <span class="service-name" style="margin-bottom: 5px;">Traslado Aeropuerto a Hotel</span>
-                    <span class="service-price" style="text-align: left; white-space: normal; color: var(--text-main); font-size: 14px; font-weight: normal;">
-                        Vehículo Confort <strong style="color:var(--accent)">$25 + fee</strong><br>
-                        <span class="price-subtext" style="display: block; margin-top: 5px; line-height: 1.3;">
-                            <em>(Si va a acompañar a su familiar, el retorno a Ciudad de Panamá tiene un costo de <strong>$10</strong>)</em>
-                        </span>
-                    </span>
+                
+                <li>
+                    <div class="service-info">
+                        <span class="service-name">Traslado Aeropuerto</span>
+                        <span class="service-desc">Vehículo Confort. Retorno a ciudad $10</span>
+                    </div>
+                    <span class="service-price">$25 <small>+ fee</small></span>
                 </li>
 
-                <li class="stack-mobile">
-                    <span class="service-name">Isla Perico (Amador)</span>
-                    <span class="service-price">$8 <span class="price-subtext">(ida)</span></span>
+                <li>
+                    <div class="service-info">
+                        <span class="service-name">Isla Perico (Amador)</span>
+                        <span class="service-desc">Ida</span>
+                    </div>
+                    <span class="service-price">$8</span>
                 </li>
 
-                <li class="stack-mobile">
-                    <span class="service-name">Exclusas Miraflores</span>
-                    <span class="service-price">$8 <span class="price-subtext">(ida)</span> + $8 <span class="price-subtext">(retorno)</span></span>
+                <li>
+                    <div class="service-info">
+                        <span class="service-name">Esclusas Miraflores</span>
+                        <span class="service-desc">Ida y retorno</span>
+                    </div>
+                    <span class="service-price">$16</span>
                 </li>
 
-                <li class="stack-mobile">
-                    <span class="service-name">Veracruz</span>
-                    <span class="service-price">$22 <span class="price-subtext">(ida y vuelta)</span></span>
+                <li>
+                    <div class="service-info">
+                        <span class="service-name">Veracruz</span>
+                        <span class="service-desc">Ida y vuelta</span>
+                    </div>
+                    <span class="service-price">$22</span>
                 </li>
 
-                <li class="stack-mobile">
-                    <span class="service-name">Colon 2000 o Zona Libre</span>
-                    <span class="service-price"><span class="price-subtext">desde</span> $85</span>
+                <li>
+                    <div class="service-info">
+                        <span class="service-name">Colón 2000 o Z. Libre</span>
+                        <span class="service-desc">Desde</span>
+                    </div>
+                    <span class="service-price">$85</span>
                 </li>
 
-                <li class="stack-mobile">
-                    <span class="service-name">Valle de Antón</span>
-                    <span class="service-price"><span class="price-subtext">desde</span> $110</span>
+                <li>
+                    <div class="service-info">
+                        <span class="service-name">Valle de Antón</span>
+                        <span class="service-desc">Desde</span>
+                    </div>
+                    <span class="service-price">$110</span>
                 </li>
 
-                <li class="stack-mobile">
-                    <span class="service-name">Dia Playa Santa Clara</span>
-                    <span class="service-price"><span class="price-subtext">desde</span> $125</span>
+                <li>
+                    <div class="service-info">
+                        <span class="service-name">Día Playa Sta. Clara</span>
+                        <span class="service-desc">Desde</span>
+                    </div>
+                    <span class="service-price">$125</span>
                 </li>
 
-                <li style="flex-direction: column; align-items: flex-start;">
-                    <span class="service-name" style="margin-bottom: 5px;">Tours Chiriquí (2 a 3 dias)</span>
-                    <span class="service-price" style="text-align: left; white-space: normal; color: var(--text-main); font-size: 13px; font-weight: normal;">
-                        <span class="price-subtext" style="display: inline;">(Combustible + hospedaje + comida +</span> <strong style="color:var(--accent)">$80 diario</strong>)
-                    </span>
+                <li>
+                    <div class="service-info">
+                        <span class="service-name">Tours Chiriquí (2-3 d.)</span>
+                        <span class="service-desc">+ Combustible, hospedaje y comida</span>
+                    </div>
+                    <span class="service-price">$80 <small>/día</small></span>
                 </li>
 
-                <li style="flex-direction: column; align-items: flex-start;">
-                    <span class="service-name" style="margin-bottom: 5px;">Bocas del Toro</span>
-                    <span class="service-price" style="text-align: left; white-space: normal; color: var(--text-main); font-size: 13px; font-weight: normal;">
-                        <span class="price-subtext" style="display: inline;">(Combustible + costos +</span> <strong style="color:var(--accent)">$80 diario</strong>)
-                    </span>
+                <li>
+                    <div class="service-info">
+                        <span class="service-name">Bocas del Toro</span>
+                        <span class="service-desc">+ Combustible y costos</span>
+                    </div>
+                    <span class="service-price">$80 <small>/día</small></span>
                 </li>
                 
-                <li class="stack-mobile">
-                    <span class="service-name">Traslado pesado en vehículo 4x4</span>
-                    <span class="service-price"><span class="price-subtext">Desde</span> $25 <span class="price-subtext">en ciudad</span></span>
+                <li>
+                    <div class="service-info">
+                        <span class="service-name">Traslado 4x4 (Carga)</span>
+                        <span class="service-desc">En ciudad. Desde</span>
+                    </div>
+                    <span class="service-price">$25</span>
                 </li>
             </ul>
 
@@ -453,11 +514,22 @@
                 <summary>💆‍♂️ Bienestar y Estética</summary>
                 <div class="accordion-content">
                     <ul class="service-list">
-                        <li class="stack-mobile"><span class="service-name">Masajes Relajantes (30 min)</span> <span class="service-price">$35</span></li>
-                        <li class="stack-mobile"><span class="service-name">Masajes Relajantes (60 min)</span> <span class="service-price">$65</span></li>
-                        <li class="stack-mobile"><span class="service-name">Limpiezas faciales</span> <span class="service-price">Desde $35</span></li>
-                        <li class="stack-mobile"><span class="service-name">Masaje reductor con hidrolipoclasia (bajar rápido)</span> <span class="service-price">$200</span></li>
-                        <li class="stack-mobile"><span class="service-name">Otros servicios estéticos</span> <span class="service-price">Consultar</span></li>
+                        <li>
+                            <div class="service-info"><span class="service-name">Masajes Relajantes</span><span class="service-desc">30 min</span></div>
+                            <span class="service-price">$35</span>
+                        </li>
+                        <li>
+                            <div class="service-info"><span class="service-name">Masajes Relajantes</span><span class="service-desc">60 min</span></div>
+                            <span class="service-price">$65</span>
+                        </li>
+                        <li>
+                            <div class="service-info"><span class="service-name">Limpiezas faciales</span><span class="service-desc">Desde</span></div>
+                            <span class="service-price">$35</span>
+                        </li>
+                        <li>
+                            <div class="service-info"><span class="service-name">Masaje Reductor</span><span class="service-desc">Con hidrolipoclasia</span></div>
+                            <span class="service-price">$200</span>
+                        </li>
                     </ul>
                 </div>
             </details>
@@ -466,39 +538,40 @@
                 <summary>🎧 Tecnología y Equipos</summary>
                 <div class="accordion-content">
                     <ul class="service-list">
-                        <li style="flex-direction: column; align-items: flex-start;">
-                            <span class="service-name">Bocinas para piscina</span>
-                            <span style="font-size: 13px; color: var(--text-main); margin-top: 3px;">Con micrófono y resistente al agua <strong style="color:var(--accent)">$25</strong></span>
+                        <li>
+                            <div class="service-info">
+                                <span class="service-name">Bocina piscina</span>
+                                <span class="service-desc">Resistente agua + micro</span>
+                            </div>
+                            <span class="service-price">$25</span>
                         </li>
-                        <li style="flex-direction: column; align-items: flex-start;">
-                            <span class="service-name">Combo dúo doble poder</span>
-                            <span style="font-size: 13px; color: var(--text-main); margin-top: 3px;">Suenan bien y dura bastante la batería <strong style="color:var(--accent)">$55</strong></span>
-                        </li>
-                        <li style="flex-direction: column; align-items: flex-start;">
-                            <span class="service-name">Audífonos, computadoras y otros artículos</span>
-                            <span style="font-size: 13px; color: var(--text-main); margin-top: 3px; font-style: italic;">Se venden por pedido con entrega el mismo día de lunes a viernes de 8am a 2pm.</span>
+                        <li>
+                            <div class="service-info">
+                                <span class="service-name">Combo Dúo Poder</span>
+                                <span class="service-desc">Alta batería y sonido</span>
+                            </div>
+                            <span class="service-price">$55</span>
                         </li>
                     </ul>
+                    <p style="font-size: 12px; color: #64748b; margin-top: 15px; text-align: center;"><em>Audífonos y PC: Venta por pedido. Entrega L-V de 8am a 2pm.</em></p>
                 </div>
             </details>
         </div>
 
-        <div class="card" style="text-align: center; border-top: 3px solid #f59e0b;">
-            <h2 style="color: #d97706; border-bottom: none; margin-bottom: 5px;">🍽️ Gastronomía</h2>
-            <p style="font-size: 14px; margin-bottom: 15px;">Se están actualizando los restaurantes, consulta directamente.</p>
+        <div class="card gastro-card" style="text-align: center;">
+            <h2 style="color: #d97706; margin-bottom: 5px;">🍽️ Gastronomía</h2>
+            <p style="font-size: 14px; margin-bottom: 15px;">Se están actualizando los restaurantes, consulta directamente con Gasper.</p>
             <a href="https://wa.me/50762464619?text=Hola%20Gasper,%20quiero%20recomendaciones%20de%20restaurantes" class="btn-action" target="_blank" style="background-color: #f59e0b;">🍽️ Dónde comer</a>
         </div>
 
-        <div class="card" style="text-align: center;">
+        <div class="prestamo-card">
             <h2>Préstamos Personales</h2>
-            <p style="font-size: 14px; margin-bottom: 15px;">¿Eres panameño(a) y necesitas un préstamo personal? Solicítalo conmigo.</p>
-            <a href="https://wa.me/50762464619?text=Estoy%20interesado%20en%20un%20prestamo%20personal" class="btn-action" target="_blank">Estoy interesado en un préstamo personal</a>
+            <p>¿Eres panameño(a) y necesitas efectivo rápido y seguro? Solicítalo directamente conmigo.</p>
+            <a href="https://wa.me/50762464619?text=Estoy%20interesado%20en%20un%20prestamo%20personal" class="btn-action" target="_blank">📲 Solicitar mi Préstamo</a>
         </div>
 
         <div class="interest-section">
-            <div class="interest-header">
-                📱 Números de Interés (Panamá)
-            </div>
+            <div class="interest-header">📱 Números de Interés (Panamá)</div>
             <div class="interest-grid">
                 <div class="interest-item"><span class="interest-name">Policía Nacional</span> <span class="interest-number">104</span></div>
                 <div class="interest-item"><span class="interest-name">Ambulancia (SUME)</span> <span class="interest-number">911</span></div>
