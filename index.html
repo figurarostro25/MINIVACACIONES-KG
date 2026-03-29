@@ -7,12 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-dark: #0f172a; /* Azul muy oscuro/Naval */
-            --primary: #1e3a8a; /* Azul profesional */
-            --accent: #0f766e; /* Verde Teal sofisticado */
-            --bg-color: #f8fafc; /* Fondo gris muy claro */
+            --primary-dark: #0f172a; 
+            --primary: #1e3a8a; 
+            --accent: #0f766e; 
+            --bg-color: #f8fafc; 
             --text-main: #334155;
             --white: #ffffff;
+            --light-gray: #f1f5f9;
         }
 
         body {
@@ -21,17 +22,17 @@
             color: var(--text-main);
             margin: 0;
             padding: 0;
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
         .container {
             max-width: 700px;
             margin: 0 auto;
             padding: 20px;
-            padding-bottom: 80px; /* Espacio para el botón de WhatsApp */
+            padding-bottom: 90px;
         }
 
-        /* Cabecera e Imagen Premium */
+        /* Cabecera e Imagen */
         .hero-image {
             width: 100%;
             height: 220px;
@@ -46,7 +47,6 @@
             margin-bottom: 30px;
         }
 
-        /* Logo Estilizado */
         .logo-premium {
             background: linear-gradient(135deg, var(--primary-dark), var(--primary));
             color: var(--white);
@@ -58,7 +58,7 @@
             justify-content: center;
             font-size: 22px;
             font-weight: 700;
-            margin: -70px auto 15px auto; /* Sube el logo sobre la imagen */
+            margin: -70px auto 15px auto;
             box-shadow: 0 8px 20px rgba(30,58,138,0.4);
             border: 4px solid var(--white);
             position: relative;
@@ -69,7 +69,6 @@
             font-size: 26px;
             font-weight: 700;
             margin: 0 0 8px 0;
-            letter-spacing: -0.5px;
         }
 
         .subtitle {
@@ -80,7 +79,7 @@
             font-weight: 500;
         }
 
-        /* Botones de Traducción */
+        /* Botones de Traducción y Pagos */
         .translate-container {
             display: flex;
             justify-content: center;
@@ -101,13 +100,6 @@
             transition: all 0.3s ease;
         }
 
-        .btn-lang:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            background-color: #f1f5f9;
-        }
-
-        /* Banner de Pagos (Elegante) */
         .payment-banner {
             background: linear-gradient(135deg, var(--accent), #115e59);
             color: var(--white);
@@ -118,53 +110,93 @@
             box-shadow: 0 6px 15px rgba(15, 118, 110, 0.2);
         }
 
-        .payment-banner h3 {
-            margin: 0 0 10px 0;
-            font-size: 15px;
-            font-weight: 600;
-        }
-
-        .payment-methods {
-            font-weight: 700;
-            font-size: 14px;
-            letter-spacing: 1px;
-        }
-
-        /* Tarjeta Principal de Presentación */
-        .presentation-card {
+        /* Tarjetas de Secciones */
+        .card {
             background: var(--white);
             border-radius: 16px;
-            padding: 35px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-            border-left: 6px solid var(--primary);
-            margin-bottom: 30px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+            margin-bottom: 25px;
+            border-top: 4px solid var(--primary);
         }
 
-        .presentation-card h2 {
+        .card h2 {
             color: var(--primary);
             margin-top: 0;
-            font-size: 20px;
-            border-bottom: 2px solid #f1f5f9;
-            padding-bottom: 15px;
-            margin-bottom: 20px;
+            font-size: 19px;
+            border-bottom: 2px solid var(--light-gray);
+            padding-bottom: 12px;
+            margin-bottom: 15px;
         }
 
-        .presentation-card p {
-            margin-bottom: 18px;
-            text-align: justify;
+        .card h3 {
+            color: var(--primary-dark);
+            font-size: 16px;
+            margin-bottom: 10px;
         }
 
-        /* Pestaña / Sección de Emergencias */
-        .emergency-section {
+        /* Lista de Productos/Servicios */
+        .service-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .service-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--light-gray);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-list li:last-child {
+            border-bottom: none;
+        }
+
+        .service-price {
+            font-weight: 700;
+            color: var(--accent);
+            margin-top: 4px;
+        }
+
+        /* Botones de Acción */
+        .btn-action {
+            display: inline-block;
+            background-color: var(--accent); /* Verde elegante, no chillón */
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 15px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: background 0.3s ease;
+        }
+
+        .btn-action:hover {
+            background-color: #0d9488;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        /* Números de Interés (Elegante) */
+        .interest-section {
             background: var(--white);
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
             border: 1px solid #e2e8f0;
+            margin-bottom: 30px;
         }
 
-        .emergency-header {
-            background: #f87171;
+        .interest-header {
+            background: var(--primary-dark);
             color: white;
             padding: 15px 20px;
             font-weight: 600;
@@ -174,33 +206,49 @@
             gap: 10px;
         }
 
-        .emergency-grid {
+        .interest-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 15px;
             padding: 20px;
         }
 
-        .emergency-item {
-            background: #fef2f2;
+        .interest-item {
+            background: var(--light-gray);
             padding: 12px;
             border-radius: 8px;
-            border-left: 4px solid #ef4444;
+            border-left: 4px solid var(--primary);
             display: flex;
             flex-direction: column;
         }
 
-        .emergency-name {
+        .interest-name {
             font-size: 12px;
-            color: #7f1d1d;
+            color: var(--text-main);
             font-weight: 600;
             text-transform: uppercase;
         }
 
-        .emergency-number {
+        .interest-number {
             font-size: 18px;
-            color: #b91c1c;
+            color: var(--primary);
             font-weight: 700;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #64748b;
+            font-size: 14px;
+            border-top: 1px solid #cbd5e1;
+            margin-top: 20px;
+        }
+
+        .footer strong {
+            color: var(--primary-dark);
+            display: block;
+            margin-bottom: 5px;
         }
 
         /* Botón Flotante de WhatsApp */
@@ -219,30 +267,19 @@
             align-items: center;
             gap: 10px;
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease;
             z-index: 1000;
         }
 
         .whatsapp-float:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
-        }
-
-        /* Ícono simple de WA en CSS */
-        .wa-icon {
-            width: 20px;
-            height: 20px;
-            background: white;
-            border-radius: 50%;
-            display: inline-block;
-            position: relative;
         }
         
         @media (max-width: 600px) {
-            .emergency-grid {
+            .interest-grid {
                 grid-template-columns: 1fr;
             }
-            .presentation-card {
+            .card {
                 padding: 20px;
             }
         }
@@ -266,49 +303,100 @@
         </div>
 
         <div class="payment-banner">
-            <h3>¡Aceptamos pagos con!</h3>
-            <div class="payment-methods">
-                💳 Visa | 📱 Yappi | 💵 Efectivo
-            </div>
+            <h3>¡Acepto pagos con!</h3>
+            <div style="font-weight: 700; font-size: 14px;">💳 Visa | 📱 Yappi | 💵 Cash</div>
         </div>
 
-        <div class="presentation-card">
+        <div class="card">
             <h2>¡Damas y caballeros, bienvenidos a Panamá!</h2>
             <p>Mi nombre es Gasper Rodriguez, y estoy aquí para que su experiencia sea cómoda, fluida y bien acompañada, ya sea por turismo o negocios.</p>
             <p>Pueden contar conmigo como su apoyo local: traslados, recorridos, orientación en la ciudad o simplemente alguien de confianza con quien conversar. Mi objetivo es que se sientan respaldados en todo momento durante su estadía.</p>
             <p>Cuento con un perfil integral enfocado en soluciones: desarrollo sitios web en tiempo récord, brindo asesoría en ventas y negocios, apoyo en la creación de ideas, resolución de problemas y acompañamiento con enfoque humano.</p>
             <p>Más que múltiples servicios, ofrezco criterio, experiencia y confianza en un solo contacto.</p>
             <p>Incluso después de su viaje, quedo a la orden para gestiones digitales, asesorías y apoyo en reservas internacionales.</p>
+            <br>
+            <div style="text-align: center;">
+                <strong>Estoy aquí para ayudarte. Bienvenido, cuenta conmigo 🤝</strong>
+            </div>
         </div>
 
-        <div class="emergency-section">
-            <div class="emergency-header">
-                🚨 Directorio de Emergencias (Panamá)
+        <div class="card">
+            <h2>Viaja Cómodo</h2>
+            <p><strong>Uber Confort:</strong> Toyota Corolla 2025. Camioneta con suspensión más silenciosa, mayor capacidad de peso y el máximo confort para tus traslados.</p>
+        </div>
+
+        <div class="card" style="text-align: center;">
+            <h2>Consulta tarifas con Gasper</h2>
+            <p>Me puedes chatear con tranquilidad y confianza, te atenderé cordialmente. No siempre se gana dinero, también se gana amistad y gratitud.</p>
+            <p><em>Si hablas español o si hablas poquito español, me llamas o escribes.</em></p>
+            
+            <a href="https://wa.me/50762464619" class="btn-action btn-outline" target="_blank">¿Deseas chatear con alguien y consultar cosas?</a>
+            <a href="https://wa.me/50762464619" class="btn-action" target="_blank">Hablar con Gasper</a>
+        </div>
+
+        <div class="card">
+            <h2>Servicios y Productos en Venta</h2>
+            
+            <h3>💆‍♂️ Bienestar y Estética</h3>
+            <ul class="service-list">
+                <li>Masajes Relajantes <span class="service-price">$35 (30 min) | $65 (60 min)</span></li>
+                <li>Limpiezas faciales <span class="service-price">Desde $35</span></li>
+                <li>Masaje reductor con hidrolipoclasia (bajar rápido de peso) <span class="service-price">$200</span></li>
+                <li><em>Otros servicios estéticos: Consultar</em></li>
+            </ul>
+
+            <h3 style="margin-top: 25px;">🎧 Equipos Tecnológicos</h3>
+            <ul class="service-list">
+                <li>Bocinas para piscina (con micrófono, resistentes al agua) <span class="service-price">$25</span></li>
+                <li>Combo dúo doble poder (excelente sonido y batería de larga duración) <span class="service-price">$55</span></li>
+                <li>Audífonos, computadoras y otros artículos <span class="service-price">Venta por pedido (Entrega el mismo día L-V, 8am a 2pm)</span></li>
+            </ul>
+
+            <h3 style="margin-top: 25px;">🛻 Transporte y Tours</h3>
+            <ul class="service-list">
+                <li>Transporte en pick up de carga (traslado pesado en vehículo 4x4) <span class="service-price">Desde $25 en ciudad</span></li>
+                <li>Tours <span class="service-price">Precios negociables</span></li>
+            </ul>
+        </div>
+
+        <div class="card" style="text-align: center;">
+            <h2>Préstamos Personales</h2>
+            <p>¿Eres panameño(a) y necesitas un préstamo personal? Solicítalo conmigo.</p>
+            <a href="https://wa.me/50762464619?text=Estoy%20interesado%20en%20un%20prestamo%20personal" class="btn-action" target="_blank">Estoy interesado en un préstamo personal</a>
+        </div>
+
+        <div class="interest-section">
+            <div class="interest-header">
+                📱 Números de Interés (Panamá)
             </div>
-            <div class="emergency-grid">
-                <div class="emergency-item">
-                    <span class="emergency-name">Policía Nacional</span>
-                    <span class="emergency-number">104</span>
+            <div class="interest-grid">
+                <div class="interest-item">
+                    <span class="interest-name">Policía Nacional</span>
+                    <span class="interest-number">104</span>
                 </div>
-                <div class="emergency-item">
-                    <span class="emergency-name">Ambulancia (SUME)</span>
-                    <span class="emergency-number">911</span>
+                <div class="interest-item">
+                    <span class="interest-name">Ambulancia (SUME)</span>
+                    <span class="interest-number">911</span>
                 </div>
-                <div class="emergency-item">
-                    <span class="emergency-name">Bomberos</span>
-                    <span class="emergency-number">103</span>
+                <div class="interest-item">
+                    <span class="interest-name">Bomberos</span>
+                    <span class="interest-number">103</span>
                 </div>
-                <div class="emergency-item">
-                    <span class="emergency-name">Protección Civil (SINAPROC)</span>
-                    <span class="emergency-number">335</span>
+                <div class="interest-item">
+                    <span class="interest-name">Protección Civil</span>
+                    <span class="interest-number">335</span>
                 </div>
             </div>
+        </div>
+
+        <div class="footer">
+            <strong>Minivacaciones & Destinos</strong>
+            Para llamadas directas urgentes: <strong>6478-7049</strong>
         </div>
 
     </div>
 
-    <a href="#" class="whatsapp-float">
-        <span class="wa-icon"></span>
+    <a href="https://wa.me/50762464619" class="whatsapp-float" target="_blank">
         WhatsApp
     </a>
 
