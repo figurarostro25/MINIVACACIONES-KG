@@ -198,7 +198,7 @@
             padding: 15px 0;
             border-bottom: 1px solid #e2e8f0;
             display: flex;
-            justify-content: space-between; /* Texto a la izq, precio a la der */
+            justify-content: space-between;
             align-items: center;
         }
 
@@ -229,7 +229,7 @@
 
         .service-price {
             font-weight: 800;
-            color: var(--primary); /* Azul resaltado */
+            color: var(--primary);
             font-size: 20px;
             white-space: nowrap;
             text-align: right;
@@ -262,41 +262,6 @@
             background-color: transparent;
             color: var(--primary);
             border: 2px solid var(--primary);
-        }
-
-        /* SECCIÓN PRÉSTAMOS - GIGANTE Y LLAMATIVA */
-        .prestamo-card {
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-            border-radius: 16px;
-            padding: 35px 25px;
-            text-align: center;
-            color: white;
-            margin-bottom: 25px;
-            box-shadow: 0 10px 30px rgba(30,58,138,0.3);
-        }
-
-        .prestamo-card h2 {
-            color: white;
-            font-size: 24px;
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-weight: 800;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            padding-bottom: 15px;
-        }
-
-        .prestamo-card p {
-            font-size: 16px;
-            margin-bottom: 20px;
-            color: #e2e8f0;
-        }
-
-        .prestamo-card .btn-action {
-            background-color: #25D366; /* Verde WhatsApp */
-            font-size: 18px;
-            padding: 16px;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            color: #fff;
         }
 
         /* Números de Interés */
@@ -365,15 +330,11 @@
             box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
             z-index: 1000;
         }
-
-        /* Gastronomía Banner */
-        .gastro-card {
-            background: #fffbeb;
-            border-left: 4px solid #f59e0b;
-        }
         
         @media (max-width: 600px) {
             .interest-grid { grid-template-columns: 1fr; }
+            .service-list li.stack-mobile { flex-direction: column; align-items: flex-start; gap: 4px; }
+            .service-list li.stack-mobile .service-price { text-align: left; }
         }
     </style>
 </head>
@@ -415,13 +376,6 @@
                 <svg class="suv-icon" viewBox="0 0 640 512"><path d="M544 192h-16.1l-34.1-68.1c-14-27.9-42.3-46.9-74.8-46.9H160c-32.5 0-60.8 19-74.8 46.9L51.1 192H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h32c0 26.5 21.5 48 48 48s48-21.5 48-48h192c0 26.5 21.5 48 48 48s48-21.5 48-48h32c26.5 0 48-21.5 48-48V240c0-26.5-21.5-48-48-48zM128 448c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32zm160-160H112l32-64h144zm0 64H112l32-64h144zm192 128c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32zm32-128H352l32-64h144zm0 64H352l32-64h144z"/></svg>
                 <p style="margin: 0; font-size: 14px;"><strong>Uber Confort: Toyota Corolla 2025.</strong> Camioneta con suspensión más silenciosa y más capacidad de peso y confort.</p>
             </div>
-        </div>
-
-        <div class="card" style="text-align: center;">
-            <h2>Consulta tarifas con Gasper</h2>
-            <p style="font-size: 14px; margin-bottom: 20px;">Me puedes chatear con tranquilidad y confianza, te atenderé cordialmente. No siempre se gana dinero, también se gana amistad y gratitud.<br><br><em>Si hablas español o si hablas poquito español me llamas o escribes.</em></p>
-            <a href="https://wa.me/50762464619" class="btn-action btn-outline" target="_blank">¿Deseas chatear con alguien?</a>
-            <a href="https://wa.me/50762464619" class="btn-action" target="_blank" style="background-color: var(--primary);">Hablar con Gasper</a>
         </div>
 
         <div class="card">
@@ -558,16 +512,11 @@
             </details>
         </div>
 
-        <div class="card gastro-card" style="text-align: center;">
-            <h2 style="color: #d97706; margin-bottom: 5px;">🍽️ Gastronomía</h2>
-            <p style="font-size: 14px; margin-bottom: 15px;">Se están actualizando los restaurantes, consulta directamente con Gasper.</p>
-            <a href="https://wa.me/50762464619?text=Hola%20Gasper,%20quiero%20recomendaciones%20de%20restaurantes" class="btn-action" target="_blank" style="background-color: #f59e0b;">🍽️ Dónde comer</a>
-        </div>
-
-        <div class="prestamo-card">
-            <h2>Préstamos Personales</h2>
-            <p>¿Eres panameño(a) y necesitas efectivo rápido y seguro? Solicítalo directamente conmigo.</p>
-            <a href="https://wa.me/50762464619?text=Estoy%20interesado%20en%20un%20prestamo%20personal" class="btn-action" target="_blank">📲 Solicitar mi Préstamo</a>
+        <div class="card" style="text-align: center;">
+            <h2>Consulta tarifas con Gasper</h2>
+            <p style="font-size: 14px; margin-bottom: 20px;">Me puedes chatear con tranquilidad y confianza, te atenderé cordialmente. No siempre se gana dinero, también se gana amistad y gratitud.<br><br><em>Si hablas español o si hablas poquito español me llamas o escribes.</em></p>
+            <a href="https://wa.me/50762464619" class="btn-action btn-outline" target="_blank">¿Deseas chatear con alguien?</a>
+            <a href="https://wa.me/50762464619" class="btn-action" target="_blank" style="background-color: var(--primary);">Hablar con Gasper</a>
         </div>
 
         <div class="interest-section">
