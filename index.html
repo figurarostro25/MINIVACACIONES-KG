@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Minivacaciones & Destinos - Gasper Rodríguez</title>
     <style>
-        /* ESTILOS GENERALES Y COLORES (Elegantes: Azul Oscuro, Dorado, Blanco) */
+        /* NUEVA PALETA DE COLORES (Suave y Divertida) */
         :root {
-            --bg-color: #0a0e17;
-            --card-bg: #161b29;
-            --text-main: #ffffff;
-            --text-muted: #b0b8c1;
-            --accent: #d4af37;
-            --accent-hover: #f1c40f;
-            --whatsapp-green: #25D366;
-            --shadow: 0 4px 6px rgba(0,0,0,0.3);
+            --bg-color: #fffdfa; /* Crema muy suave */
+            --card-bg: #f2faff; /* Azul pastel muy pálido para tarjetas */
+            --text-main: #4a4a4a; /* Gris oscuro suave para el texto */
+            --text-muted: #8c8c8c; /* Gris medio para texto secundario */
+            --accent: #ffb3a1; /* Rosa coral suave y alegre */
+            --accent-hover: #ff9f89; /* Coral un poco más fuerte para hover */
+            --whatsapp-green: #25D366; /* Mantenemos el verde WhatsApp original */
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
             --font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
@@ -45,7 +45,7 @@
         header {
             text-align: center;
             padding: 20px 0;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(255, 179, 161, 0.2); /* Borde suave coral */
             margin-bottom: 20px;
         }
 
@@ -64,9 +64,17 @@
             border: 2px solid var(--accent);
         }
 
-        h1 {
+        .header-title {
             font-size: 1.4rem;
-            color: var(--accent);
+            color: #ff9f89; /* Tono coral un poco más fuerte para el título principal */
+            margin-bottom: 5px;
+        }
+
+        /* NUEVA SUBTÍTULO EN HEADER */
+        .header-services {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: normal;
             margin-bottom: 5px;
         }
 
@@ -76,39 +84,41 @@
             font-weight: normal;
         }
 
-        /* SECCIÓN TRADUCTOR */
+        /* SECCIÓN TRADUCTOR (Nuevos botones pequeños y discretos) */
         .lang-section {
-            background-color: rgba(255,255,255,0.05);
-            padding: 15px;
-            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 10px;
             margin-bottom: 20px;
-            text-align: center;
-            border: 1px dashed var(--text-muted);
+            background-color: rgba(255,255,255,0.8);
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
-        .lang-text {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 10px;
-        }
-
-        .btn-translate {
+        .btn-translate-small {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background-color: #ffffff;
+            gap: 5px;
+            background-color: white;
             color: #757575;
             text-decoration: none;
-            padding: 12px 20px;
+            padding: 10px 15px;
             border-radius: 8px;
             font-weight: bold;
-            font-size: 1rem;
-            width: 100%;
+            font-size: 0.85rem;
             border: 1px solid #dadce0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            transition: background-color 0.2s;
         }
-        .btn-translate img { width: 20px; height: 20px; }
+
+        .btn-translate-small:hover {
+            background-color: #f8f9fa;
+        }
+
+        .flag-icon {
+            font-size: 1.1rem;
+        }
 
         /* BIENVENIDA Y GASPER */
         .welcome-section {
@@ -121,7 +131,7 @@
         }
 
         .welcome-title {
-            color: var(--accent);
+            color: #ff9f89; /* Coral más fuerte para título de bienvenida */
             font-size: 1.2rem;
             margin-bottom: 10px;
         }
@@ -134,9 +144,9 @@
         
         .uber-info {
             font-size: 0.85rem;
-            color: var(--accent);
+            color: var(--text-muted);
             font-weight: bold;
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(255, 179, 161, 0.1); /* Tono suave coral */
             padding: 8px;
             border-radius: 6px;
             text-align: center;
@@ -177,14 +187,14 @@
         }
 
         .btn-map {
-            background-color: #4285F4;
+            background-color: #a3cfff; /* Azul pastel para el mapa */
             color: white;
         }
 
         .btn-hotels {
             background-color: var(--card-bg);
-            color: var(--accent);
-            border: 2px solid var(--accent);
+            color: #ff9f89; /* Coral para el botón de hoteles */
+            border: 2px solid #ff9f89;
         }
 
         .icon-big { font-size: 2rem; margin-bottom: 5px; }
@@ -193,7 +203,7 @@
         /* TÍTULOS DE SECCIÓN */
         .section-title {
             font-size: 1.1rem;
-            color: var(--accent);
+            color: #ff9f89; /* Coral para los títulos de sección */
             text-transform: uppercase;
             letter-spacing: 1px;
             margin: 25px 0 15px 5px;
@@ -205,7 +215,7 @@
             content: "";
             flex: 1;
             height: 1px;
-            background-color: rgba(212, 175, 55, 0.3);
+            background-color: rgba(255, 179, 161, 0.3); /* Línea coral suave */
         }
 
         /* MENÚ DE PRECIOS */
@@ -222,7 +232,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
         .destination {
@@ -233,7 +243,7 @@
         }
 
         .price {
-            color: var(--accent);
+            color: #ff9f89; /* Coral para los precios */
             font-weight: bold;
             font-size: 1rem;
             text-align: right;
@@ -259,11 +269,11 @@
             font-weight: bold;
             margin-bottom: 15px;
             box-shadow: var(--shadow);
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(0,0,0,0.05);
         }
         
         .btn-update {
-            background-color: #333;
+            background-color: #f1fcf1; /* Verde pastel muy pálido para el botón de actualizar */
             color: var(--text-muted);
             font-weight: normal;
             font-style: italic;
@@ -272,12 +282,12 @@
 
         /* MÉTODOS DE PAGO */
         .payment-methods {
-            background-color: rgba(255,255,255,0.03);
+            background-color: rgba(255, 179, 161, 0.05); /* Tono suave coral */
             text-align: center;
             padding: 15px;
             border-radius: 8px;
             margin-top: 30px;
-            border: 1px solid rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(255, 179, 161, 0.1);
         }
 
         .payment-title {
@@ -289,7 +299,7 @@
 
         .payment-icons {
             font-size: 0.9rem;
-            color: var(--accent);
+            color: #ff9f89; /* Coral para iconos de pago */
             font-weight: bold;
             letter-spacing: 1px;
         }
@@ -301,12 +311,12 @@
             margin-top: 20px;
             font-size: 0.85rem;
             color: var(--text-muted);
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-top: 1px solid rgba(255, 179, 161, 0.2);
         }
         
         .negocia-box {
             background-color: var(--accent);
-            color: var(--bg-color);
+            color: white; /* Texto blanco sobre coral */
             padding: 10px;
             border-radius: 8px;
             font-weight: bold;
@@ -322,23 +332,25 @@
 <div class="container">
 
     <header>
-        <div class="logo-placeholder">M&D</div>
-        <h1>Minivacaciones & Destinos</h1>
+        <div class="logo-placeholder">🧳M&D✈️</div>
+        <h1 class="header-title">Minivacaciones & Destinos</h1>
+        <p class="header-services">Reserva Hospedajes - Transporte Privado - Negocios</p>
         <div class="subtitle">Reserva de Hoteles, Traslados, Tours</div>
     </header>
 
     <div class="lang-section">
-        <p class="lang-text">Hablo muy poquito inglés, me disculpo. Aquí tienes una herramienta para comunicarnos mejor:</p>
-        <a href="https://translate.google.com/m/translate?hl=es&sl=auto&tl=en" target="_blank" class="btn-translate">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Google_Translate_Icon.svg" alt="Google Translate">
-            Toca aquí para Traducir / Hablar
+        <a href="https://translate.google.com/m/translate?hl=es&sl=es&tl=en" target="_blank" class="btn-translate-small">
+            <span class="flag-icon">🇬🇧</span> Translate to English
+        </a>
+        <a href="https://translate.google.com/m/translate?hl=es&sl=en&tl=es" target="_blank" class="btn-translate-small">
+            <span class="flag-icon">🇪🇸</span> Traducir a Español
         </a>
     </div>
 
     <div class="welcome-section">
         <h2 class="welcome-title">¡Bienvenidos a Panamá!</h2>
         <p class="welcome-text">
-            Soy <strong>Gasper Rodríguez</strong>, soy una persona natural y de confianza. He organizado estos tours porque estoy abriendo mi propia empresa. Los llevaré a donde gusten con tranquilidad para hacer sus compras o pasear. Conózcanme para que estén cómodos, como su nuevo amigo en Panamá.
+            Soy <strong>Gasper Rodríguez</strong>, una persona natural y de confianza. He organizado estos tours porque estoy abriendo mi propia empresa. Los llevaré a donde gusten con tranquilidad para hacer sus compras o pasear. Conózcanme para que estén cómodos, como su nuevo amigo en Panamá.
         </p>
         <div class="uber-info">Soy Uber Confort, Vivo en la Ciudad</div>
     </div>
