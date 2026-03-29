@@ -2,364 +2,436 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vacaciones y Escapadas | Agencia de Viajes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Minivacaciones & Destinos - Gasper Rodríguez</title>
     <style>
-        /* Variables de colores para mantener armonía */
+        /* ESTILOS GENERALES Y COLORES (Elegantes: Azul Oscuro, Dorado, Blanco) */
         :root {
-            --primary: #0ea5e9; /* Azul viaje */
-            --secondary: #0f766e; /* Verde elegante que has usado antes */
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --white: #ffffff;
+            --bg-color: #0a0e17;
+            --card-bg: #161b29;
+            --text-main: #ffffff;
+            --text-muted: #b0b8c1;
+            --accent: #d4af37;
+            --accent-hover: #f1c40f;
+            --whatsapp-green: #25D366;
+            --shadow: 0 4px 6px rgba(0,0,0,0.3);
+            --font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            background-color: var(--light);
-            color: var(--dark);
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-main);
             line-height: 1.6;
+            padding-bottom: 30px;
         }
 
-        /* Navegación */
-        header {
-            background-color: var(--white);
-            padding: 15px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        nav a {
-            margin-left: 20px;
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--primary);
-        }
-
-        /* Sección Hero (Principal) */
-        .hero {
-            background: linear-gradient(rgba(15, 118, 110, 0.7), rgba(15, 118, 110, 0.7)), url('https://placehold.co/1200x600/0ea5e9/white?text=Fondo+Panamá+o+Playa') center/cover;
-            height: 70vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: var(--white);
-            padding: 0 20px;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            max-width: 600px;
-        }
-
-        .btn {
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 12px 25px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            transition: background 0.3s, transform 0.2s;
-        }
-
-        .btn:hover {
-            background-color: #0284c7;
-            transform: translateY(-2px);
-        }
-
-        /* Secciones Generales */
-        section {
-            padding: 60px 50px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 40px;
-            color: var(--secondary);
-        }
-
-        /* Grid de Tarjetas */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        .card img {
+        /* CONTENEDOR PRINCIPAL */
+        .container {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 15px;
         }
 
-        .card-content {
-            padding: 20px;
-        }
-
-        .card-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .card-price {
-            color: var(--primary);
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .card-desc {
-            font-size: 0.9rem;
-            color: #64748b;
+        /* CABECERA Y LOGO */
+        header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
             margin-bottom: 20px;
         }
 
-        .btn-outline {
-            display: block;
+        .logo-placeholder {
+            width: 80px;
+            height: 80px;
+            background-color: var(--accent);
+            color: var(--bg-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 24px;
+            margin: 0 auto 10px;
+            border: 2px solid var(--accent);
+        }
+
+        h1 {
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: normal;
+        }
+
+        /* SECCIÓN TRADUCTOR */
+        .lang-section {
+            background-color: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
             text-align: center;
-            width: 100%;
-            padding: 10px;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            border-radius: 6px;
+            border: 1px dashed var(--text-muted);
+        }
+
+        .lang-text {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .btn-translate {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #ffffff;
+            color: #757575;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1rem;
+            width: 100%;
+            border: 1px solid #dadce0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .btn-translate img { width: 20px; height: 20px; }
+
+        /* BIENVENIDA Y GASPER */
+        .welcome-section {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--accent);
         }
 
-        .btn-outline:hover {
-            background-color: var(--primary);
-            color: var(--white);
+        .welcome-title {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
         }
 
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: var(--white);
+        .welcome-text {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            margin-bottom: 15px;
+        }
+        
+        .uber-info {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: bold;
+            background: rgba(212, 175, 55, 0.1);
+            padding: 8px;
+            border-radius: 6px;
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 40px;
         }
 
-        /* Responsive para móviles */
-        @media (max-width: 768px) {
-            header { padding: 15px 20px; flex-direction: column; gap: 15px; }
-            nav a { margin: 0 10px; }
-            section { padding: 40px 20px; }
-            .hero h1 { font-size: 2.2rem; }
+        /* BOTONES DE ACCIÓN PRINCIPAL */
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 25px;
         }
+
+        .btn-action {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            padding: 20px 10px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.1s;
+        }
+
+        .btn-action:active { transform: scale(0.97); }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp-green);
+            color: white;
+            grid-column: span 2;
+            flex-direction: row;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+
+        .btn-map {
+            background-color: #4285F4;
+            color: white;
+        }
+
+        .btn-hotels {
+            background-color: var(--card-bg);
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        .icon-big { font-size: 2rem; margin-bottom: 5px; }
+        .btn-whatsapp .icon-big { margin-bottom: 0; }
+
+        /* TÍTULOS DE SECCIÓN */
+        .section-title {
+            font-size: 1.1rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 25px 0 15px 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: rgba(212, 175, 55, 0.3);
+        }
+
+        /* MENÚ DE PRECIOS */
+        .price-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .price-item {
+            background-color: var(--card-bg);
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .destination {
+            font-weight: bold;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            max-width: 70%;
+        }
+
+        .price {
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1rem;
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .price-subtext {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            display: block;
+            font-weight: normal;
+        }
+
+        /* BOTONES INDIVIDUALES GRANDES */
+        .single-button {
+            display: block;
+            background-color: var(--card-bg);
+            color: var(--text-main);
+            text-decoration: none;
+            padding: 18px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .btn-update {
+            background-color: #333;
+            color: var(--text-muted);
+            font-weight: normal;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+        /* MÉTODOS DE PAGO */
+        .payment-methods {
+            background-color: rgba(255,255,255,0.03);
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .payment-title {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .payment-icons {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .negocia-box {
+            background-color: var(--accent);
+            color: var(--bg-color);
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .icon { font-style: normal; }
+
     </style>
 </head>
 <body>
 
+<div class="container">
+
     <header>
-        <a href="#" class="logo">🌴 Vacacionamas</a>
-        <nav>
-            <a href="#tours">Tours Locales</a>
-            <a href="#playa">Hoteles de Playa</a>
-            <a href="#rentas">Renta Vacacional</a>
-            <a href="#internacional">Internacional</a>
-        </nav>
+        <div class="logo-placeholder">M&D</div>
+        <h1>Minivacaciones & Destinos</h1>
+        <div class="subtitle">Reserva de Hoteles, Traslados, Tours</div>
     </header>
 
-    <section class="hero">
-        <h1>Tu próxima aventura empieza aquí</h1>
-        <p>Descubre los mejores destinos en Panamá y el mundo. Experiencias únicas, alojamientos increíbles y reservas fáciles.</p>
-        <a href="#tours" class="btn">Explorar Destinos</a>
-    </section>
+    <div class="lang-section">
+        <p class="lang-text">Hablo muy poquito inglés, me disculpo. Aquí tienes una herramienta para comunicarnos mejor:</p>
+        <a href="https://translate.google.com/m/translate?hl=es&sl=auto&tl=en" target="_blank" class="btn-translate">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Google_Translate_Icon.svg" alt="Google Translate">
+            Toca aquí para Traducir / Hablar
+        </a>
+    </div>
 
-    <section id="tours">
-        <h2 class="section-title">Tours y Aventura en Panamá</h2>
-        <div class="grid-container">
-            <div class="card">
-                <img src="https://placehold.co/600x400/0f766e/white?text=Foto+San+Blas" alt="San Blas">
-                <div class="card-content">
-                    <h3 class="card-title">Pasadía en San Blas</h3>
-                    <span class="card-price">Desde $120.00</span>
-                    <p class="card-desc">Transporte 4x4, lancha, almuerzo y visita a 3 islas paradisíacas (Perro Chico, Arena Blanca, Piscina Natural).</p>
-                    <a href="#" class="btn-outline" onclick="reservar('San Blas')">Cotizar Tour</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://placehold.co/600x400/0f766e/white?text=Foto+Canal+Panama" alt="Canal de Panamá">
-                <div class="card-content">
-                    <h3 class="card-title">City Tour & Canal</h3>
-                    <span class="card-price">Desde $45.00</span>
-                    <p class="card-desc">Conoce las esclusas de Miraflores, Casco Antiguo y el Causeway de Amador con guía certificado.</p>
-                    <a href="#" class="btn-outline" onclick="reservar('City Tour')">Cotizar Tour</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://placehold.co/600x400/0f766e/white?text=Foto+Bocas+Toro" alt="Bocas del Toro">
-                <div class="card-content">
-                    <h3 class="card-title">Aventura en Bocas del Toro</h3>
-                    <span class="card-price">Desde $250.00 / 3 días</span>
-                    <p class="card-desc">Incluye vuelos, alojamiento, tour a Bahía Delfines y Cayo Coral.</p>
-                    <a href="#" class="btn-outline" onclick="reservar('Bocas del Toro')">Cotizar Tour</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="welcome-section">
+        <h2 class="welcome-title">¡Bienvenidos a Panamá!</h2>
+        <p class="welcome-text">
+            Soy <strong>Gasper Rodríguez</strong>, soy una persona natural y de confianza. He organizado estos tours porque estoy abriendo mi propia empresa. Los llevaré a donde gusten con tranquilidad para hacer sus compras o pasear. Conózcanme para que estén cómodos, como su nuevo amigo en Panamá.
+        </p>
+        <div class="uber-info">Soy Uber Confort, Vivo en la Ciudad</div>
+    </div>
 
-    <section id="playa" style="background-color: #fff;">
-        <h2 class="section-title">Resorts y Hoteles de Playa</h2>
-        <div class="grid-container">
-            <div class="card">
-                <img src="https://placehold.co/600x400/0ea5e9/white?text=Playa+Blanca+Resort" alt="Playa Blanca">
-                <div class="card-content">
-                    <h3 class="card-title">Resort Todo Incluido</h3>
-                    <span class="card-price">Desde $89.00 / Noche</span>
-                    <p class="card-desc">Riviera Pacífica. Disfruta de la piscina de agua salada más grande de Centroamérica, comidas y bebidas ilimitadas.</p>
-                    <a href="#" class="btn-outline" onclick="reservar('Resort Todo Incluido')">Ver Disponibilidad</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://placehold.co/600x400/0ea5e9/white?text=Hotel+Boutique" alt="Buenaventura">
-                <div class="card-content">
-                    <h3 class="card-title">Hotel Boutique de Lujo</h3>
-                    <span class="card-price">Desde $150.00 / Noche</span>
-                    <p class="card-desc">Experiencia exclusiva con acceso a campo de golf, spa y restaurantes de autor.</p>
-                    <a href="#" class="btn-outline" onclick="reservar('Hotel Boutique')">Ver Disponibilidad</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="action-buttons">
+        <a href="https://wa.me/50762464619?text=Hola%20Gasper,%20vi%20tu%20página%20y%20necesito%20información" class="btn-action btn-whatsapp">
+            <i class="icon icon-big">💬</i>
+            <span>Contactar a Gasper<br><small>6246-4619 (24h)</small></span>
+        </a>
 
-    <section id="rentas">
-        <h2 class="section-title">Renta Vacacional (Apartamentos)</h2>
-        <div class="grid-container">
-            <div class="card">
-                <img src="https://placehold.co/600x400/f59e0b/white?text=Apto+Avenida+Balboa" alt="Apto Balboa">
-                <div class="card-content">
-                    <h3 class="card-title">Apto Frente al Mar - Balboa</h3>
-                    <span class="card-price">$85.00 / Noche</span>
-                    <p class="card-desc">2 Habitaciones, piscina infinita, gimnasio y balcón con vista a la cinta costera. Ideal para familias.</p>
-                    <a href="#" class="btn-outline" onclick="reservar('Apto Balboa')">Alquilar Apartamento</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://placehold.co/600x400/f59e0b/white?text=Loft+Casco+Viejo" alt="Loft Casco">
-                <div class="card-content">
-                    <h3 class="card-title">Loft Histórico en Casco Viejo</h3>
-                    <span class="card-price">$110.00 / Noche</span>
-                    <p class="card-desc">Arquitectura colonial, terraza privada, cerca de los mejores restaurantes y rooftops de la ciudad.</p>
-                    <a href="#" class="btn-outline" onclick="reservar('Loft Casco')">Alquilar Apartamento</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://placehold.co/600x400/f59e0b/white?text=Villa+Coronado" alt="Villa Coronado">
-                <div class="card-content">
-                    <h3 class="card-title">Villa Privada en Coronado</h3>
-                    <span class="card-price">$200.00 / Noche</span>
-                    <p class="card-desc">Casa completa para 8 personas con piscina privada, BBQ y a 5 minutos caminando de la playa.</p>
-                    <a href="#" class="btn-outline" onclick="reservar('Villa Coronado')">Alquilar Apartamento</a>
-                </div>
-            </div>
-        </div>
-    </section>
+        <a href="https://www.google.com/maps/d/viewer?mid=1QToXG9w4S_hOub_y_R9_H-H6C7-y7Hk&usp=sharing" target="_blank" class="btn-action btn-map">
+            <i class="icon icon-big">📍</i>
+            Mapa Interés
+        </a>
 
-    <section id="internacional" style="background-color: #fff;">
-        <h2 class="section-title">Reservas Internacionales</h2>
-        <div class="grid-container">
-            <div class="card">
-                <img src="https://placehold.co/600x400/e11d48/white?text=Paquete+Cancún" alt="Cancún">
-                <div class="card-content">
-                    <h3 class="card-title">Escapada a Cancún</h3>
-                    <span class="card-price">Paquetes desde $650.00</span>
-                    <p class="card-desc">Vuelo redondo, traslados y 4 noches en resort Todo Incluido en la zona hotelera.</p>
-                    <a href="#" class="btn-outline" onclick="reservar('Cancún')">Solicitar Cotización</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://placehold.co/600x400/e11d48/white?text=Paquete+Orlando" alt="Orlando">
-                <div class="card-content">
-                    <h3 class="card-title">Magia en Orlando, Florida</h3>
-                    <span class="card-price">Paquetes desde $890.00</span>
-                    <p class="card-desc">Incluye alojamiento, renta de auto y entradas a 3 parques temáticos a elección.</p>
-                    <a href="#" class="btn-outline" onclick="reservar('Orlando')">Solicitar Cotización</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://placehold.co/600x400/e11d48/white?text=Cruceros+Caribe" alt="Cruceros">
-                <div class="card-content">
-                    <h3 class="card-title">Cruceros por el Caribe</h3>
-                    <span class="card-price">Desde $399.00 / Persona</span>
-                    <p class="card-desc">Zarpa desde Panamá o Miami. Disfruta de 7 noches recorriendo las mejores islas del Caribe.</p>
-                    <a href="#" class="btn-outline" onclick="reservar('Crucero')">Solicitar Cotización</a>
-                </div>
-            </div>
+        <a href="#hoteles" class="btn-action btn-hotels">
+            <i class="icon icon-big">🏨</i>
+            Ejemplos Hoteles
+        </a>
+    </div>
+
+    <h3 class="section-title"><i class="icon">🚐</i> Tours y Traslados</h3>
+    <div class="price-menu">
+        
+        <div class="price-item">
+            <span class="destination">Isla Perico (Amador)</span>
+            <span class="price">$8 <span class="price-subtext">(ida)</span></span>
         </div>
-    </section>
+
+        <div class="price-item">
+            <span class="destination">Exclusas Miraflores</span>
+            <span class="price">$8</span>
+        </div>
+
+        <div class="price-item">
+            <span class="destination">Veracruz</span>
+            <span class="price">$15 <span class="price-subtext">(ida y vuelta)</span></span>
+        </div>
+
+        <div class="price-item">
+            <span class="destination">Colon 2000 o Zona Libre</span>
+            <span class="price"><span class="price-subtext">desde</span> $85</span>
+        </div>
+
+        <div class="price-item">
+            <span class="destination">Valle de Antón</span>
+            <span class="price"><span class="price-subtext">desde</span> $110</span>
+        </div>
+
+        <div class="price-item">
+            <span class="destination">Dia Playa Santa Clara</span>
+            <span class="price"><span class="price-subtext">desde</span> $125</span>
+        </div>
+
+        <div class="price-item" style="flex-direction: column; align-items: flex-start;">
+            <span class="destination" style="max-width: 100%; margin-bottom: 5px;">Tours Chiriquí (2 a 3 dias)</span>
+            <span class="price" style="font-size: 0.9rem; text-align: left; white-space: normal; color: var(--text-main);">
+                <span class="price-subtext" style="display: inline;">(Combustible + hospedaje + comida +</span> <strong style="color:var(--accent)">$80 diario</strong>)
+            </span>
+        </div>
+
+        <div class="price-item" style="flex-direction: column; align-items: flex-start;">
+            <span class="destination" style="max-width: 100%; margin-bottom: 5px;">Bocas del Toro</span>
+            <span class="price" style="font-size: 0.9rem; text-align: left; white-space: normal; color: var(--text-main);">
+                <span class="price-subtext" style="display: inline;">(Combustible + costos +</span> <strong style="color:var(--accent)">$80 diario</strong>)
+            </span>
+        </div>
+
+    </div>
+
+    <h3 class="section-title"><i class="icon">🍽️</i> Gastronomía</h3>
+    <a href="#" class="single-button btn-update">
+        🍽️ Dónde comer<br>
+        <small>(Se están actualizando los restaurantes, consulta con Gasper)</small>
+    </a>
+
+    <h3 class="section-title" id="hoteles"><i class="icon">🏨</i> Alojamiento</h3>
+    <a href="https://wa.me/50762464619?text=Hola%20Gasper,%20quiero%20ver%20ejemplos%20de%20hoteles" class="single-button">
+        🏨 Ver ejemplos de Hoteles para reservar
+    </a>
+
+    <div class="payment-methods">
+        <p class="payment-title">Formas de Pago</p>
+        <p class="payment-icons">Efectivo | Yappi | Tarjeta de Crédito</p>
+    </div>
 
     <footer>
-        <h2>Vacacionamas</h2>
-        <p>Expertos en crear recuerdos inolvidables.</p>
-        <p style="margin-top: 10px; font-size: 0.8rem; color: #94a3b8;">© 2026 Todos los derechos reservados.</p>
+        <div class="negocia-box">Negocia o consulta con Gasper para una mejor experiencia.</div>
+        <p>Minivacaciones & Destinos © 2026</p>
+        <p>Panamá</p>
     </footer>
 
-    <script>
-        // Función para simular una reserva o redireccionar a WhatsApp
-        function reservar(destino) {
-            // Aquí puedes conectar el botón con WhatsApp o un formulario
-            alert("¡Excelente elección! Pronto prepararemos la redirección para cotizar: " + destino);
-            
-            /* // EJEMPLO DE CÓDIGO PARA WHATSAPP:
-            // const telefono = '50712345678';
-            // const mensaje = 'Hola, me gustaría información y cotizar el servicio de: ' + destino;
-            // window.open('https://wa.me/' + telefono + '?text=' + encodeURIComponent(mensaje), '_blank');
-            */
-        }
-    </script>
+</div>
+
 </body>
 </html>
