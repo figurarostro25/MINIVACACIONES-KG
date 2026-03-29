@@ -17,12 +17,12 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif; /* Fuente cambiada para mejor lectura */
+            font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
             margin: 0;
             padding: 0;
-            line-height: 1.6; /* Interlineado mejorado */
+            line-height: 1.6;
         }
 
         .container {
@@ -32,7 +32,7 @@
             padding-bottom: 90px;
         }
 
-        /* Cabecera e Imagen (Enlace robusto de Unsplash) */
+        /* Cabecera e Imagen (Enlace seguro de Wikimedia) */
         .hero-image {
             width: 100%;
             height: 200px;
@@ -40,6 +40,7 @@
             border-radius: 16px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             margin-bottom: 30px;
+            background-color: var(--primary-dark);
         }
 
         .header {
@@ -133,49 +134,53 @@
             margin-bottom: 15px;
         }
 
-        /* Pestaña Desplegable (Accordion) */
-        .details-presentation {
+        /* Pestañas Desplegables Generales (Acordeón) */
+        .accordion {
             background: var(--light-gray);
             border-radius: 12px;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
             overflow: hidden;
             border: 1px solid #e2e8f0;
         }
 
-        .details-presentation summary {
+        .accordion summary {
             padding: 15px 20px;
             cursor: pointer;
             font-weight: 600;
             color: var(--primary-dark);
-            list-style: none; /* Quita el triángulo por defecto */
+            list-style: none;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-size: 15px;
         }
 
-        /* Triángulo personalizado */
-        .details-presentation summary::after {
+        .accordion summary::after {
             content: '+';
             font-size: 18px;
             color: var(--primary);
             font-weight: 700;
         }
 
-        .details-presentation[open] summary::after {
+        .accordion[open] summary {
+            border-bottom: 1px solid #cbd5e1;
+        }
+
+        .accordion[open] summary::after {
             content: '-';
         }
 
-        .details-content {
-            padding: 0 20px 20px 20px;
+        .accordion-content {
+            padding: 15px 20px;
             font-size: 14px;
             color: var(--text-main);
-            text-align: justify;
+            background: var(--white);
         }
 
-        .details-content p {
+        .accordion-content p {
             margin-top: 0;
             margin-bottom: 10px;
+            text-align: justify;
         }
 
         /* Sección Viaja Cómodo con Icono SUV */
@@ -189,7 +194,7 @@
             width: 45px;
             height: 45px;
             flex-shrink: 0;
-            fill: var(--primary-dark); /* Color oscuro del icono */
+            fill: var(--primary-dark);
         }
 
         /* Listas de Servicios */
@@ -220,6 +225,7 @@
             font-weight: 700;
             color: var(--accent);
             white-space: nowrap;
+            text-align: right;
         }
 
         /* Botones de Acción */
@@ -309,6 +315,7 @@
         @media (max-width: 600px) {
             .interest-grid { grid-template-columns: 1fr; }
             .service-list li { flex-direction: column; align-items: flex-start; gap: 4px; }
+            .service-price { text-align: left; }
         }
     </style>
 </head>
@@ -316,7 +323,7 @@
 
     <div class="container">
         
-        <img src="https://images.unsplash.com/photo-1590710643916-2f0f498e826b?q=80&w=1000&auto=format&fit=crop" alt="Panama City Skyline" class="hero-image">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Panama_City_skyline_at_night.jpg/1024px-Panama_City_skyline_at_night.jpg" alt="Panama City Skyline" class="hero-image">
 
         <div class="header">
             <div class="logo-premium">M&D</div>
@@ -333,15 +340,15 @@
             <strong>Acepto pagos con:</strong> 💳 Visa | 📱 Yappi | 💵 Efectivo
         </div>
 
-        <details class="details-presentation">
+        <details class="accordion">
             <summary>
                 ¡Bienvenidos a Panamá! Conoce a Gasper R.
             </summary>
-            <div class="details-content">
+            <div class="accordion-content">
                 <p>Soy Gasper Rodriguez, su aliado local para una estadía exitosa, ya sea por turismo o negocios.</p>
                 <p>Ofrezco un <strong>perfil integral enfocado en soluciones:</strong> traslados y recorridos de confort, orientación experta en la ciudad y soporte continuo.</p>
                 <p>Además, brindo asesoría en ventas, desarrollo web rápido e ideas de negocio. Más que múltiples servicios, ofrezco criterio, experiencia y confianza en un solo contacto.</p>
-                <p>Bienvenido, cuenta conmigo 🤝</p>
+                <p style="text-align: center; font-weight: 600; margin-top: 15px;">Bienvenido, cuenta conmigo 🤝</p>
             </div>
         </details>
 
@@ -349,45 +356,54 @@
             <h2>Viaja Cómodo</h2>
             <div class="travel-comfort">
                 <svg class="suv-icon" viewBox="0 0 640 512"><path d="M544 192h-16.1l-34.1-68.1c-14-27.9-42.3-46.9-74.8-46.9H160c-32.5 0-60.8 19-74.8 46.9L51.1 192H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h32c0 26.5 21.5 48 48 48s48-21.5 48-48h192c0 26.5 21.5 48 48 48s48-21.5 48-48h32c26.5 0 48-21.5 48-48V240c0-26.5-21.5-48-48-48zM128 448c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32zm160-160H112l32-64h144zm0 64H112l32-64h144zm192 128c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32zm32-128H352l32-64h144zm0 64H352l32-64h144z"/></svg>
-                <p style="margin: 0; font-size: 14px;"><strong>Toyota Corolla Cross Gris (Uber Confort)</strong>. Vehículo moderno, silencioso y con el máximo confort para tus traslados.</p>
+                <p style="margin: 0; font-size: 14px;"><strong>Toyota Corolla Cross Gris (Uber Confort)</strong>. Vehículo moderno, silencioso, con mayor capacidad de peso y el máximo confort para tus traslados.</p>
             </div>
         </div>
 
         <div class="card" style="text-align: center;">
             <h2>Consulta tarifas con Gasper</h2>
-            <p style="font-size: 14px; margin-bottom: 20px;">Chateame con confianza, te atenderé cordialmente.</p>
+            <p style="font-size: 14px; margin-bottom: 20px;">Me puedes chatear con tranquilidad y confianza, te atenderé cordialmente. No siempre se gana dinero, también se gana amistad y gratitud.<br><em>Si hablas español o si hablas poquito español, me llamas o escribes.</em></p>
             <a href="https://wa.me/50762464619" class="btn-action" target="_blank" style="background-color: var(--primary);">Hablar con Gasper</a>
         </div>
 
         <div class="card">
             <h2>Catálogo de Servicios</h2>
             
-            <h3 style="font-size: 15px; color: var(--primary-dark); margin-top: 5px;">💆‍♂️ Bienestar y Estética</h3>
-            <ul class="service-list">
-                <li><span class="service-name">Masajes Relajantes (30 min)</span> <span class="service-price">$35</span></li>
-                <li><span class="service-name">Masajes Relajantes (60 min)</span> <span class="service-price">$65</span></li>
-                <li><span class="service-name">Limpiezas faciales</span> <span class="service-price">Desde $35</span></li>
-                <li><span class="service-name">Masaje reductor + hidrolipoclasia</span> <span class="service-price">$200</span></li>
+            <h3 style="font-size: 15px; color: var(--primary-dark); margin-top: 5px;">🛻 Transporte y Tours</h3>
+            <ul class="service-list" style="margin-bottom: 20px;">
+                <li><span class="service-name">Transporte en pick up carga (vehículo 4x4)</span> <span class="service-price">Desde $25 en ciudad</span></li>
+                <li><span class="service-name">Tours</span> <span class="service-price">Precios negociables</span></li>
             </ul>
 
-            <h3 style="font-size: 15px; color: var(--primary-dark); margin-top: 25px;">🎧 Tecnología y Equipos</h3>
-            <ul class="service-list">
-                <li><span class="service-name">Bocinas para piscina (resistentes)</span> <span class="service-price">$25</span></li>
-                <li><span class="service-name">Combo dúo doble poder (sonido + batería)</span> <span class="service-price">$55</span></li>
-                <li><span class="service-name">Audífonos y computadoras</span> <span class="service-price">Venta por pedido</span></li>
-            </ul>
+            <details class="accordion">
+                <summary>💆‍♂️ Bienestar y Estética</summary>
+                <div class="accordion-content">
+                    <ul class="service-list">
+                        <li><span class="service-name">Masajes Relajantes (30 min)</span> <span class="service-price">$35</span></li>
+                        <li><span class="service-name">Masajes Relajantes (60 min)</span> <span class="service-price">$65</span></li>
+                        <li><span class="service-name">Limpiezas faciales</span> <span class="service-price">Desde $35</span></li>
+                        <li><span class="service-name">Masaje reductor con hidrolipoclasia (bajar rápido)</span> <span class="service-price">$200</span></li>
+                        <li><span class="service-name">Otros servicios estéticos</span> <span class="service-price">Consultar</span></li>
+                    </ul>
+                </div>
+            </details>
 
-            <h3 style="font-size: 15px; color: var(--primary-dark); margin-top: 25px;">🛻 Transporte y Tours</h3>
-            <ul class="service-list">
-                <li><span class="service-name">Transporte en pick up carga 4x4</span> <span class="service-price">Desde $25</span></li>
-                <li><span class="service-name">Tours personalizados</span> <span class="service-price">Negociable</span></li>
-            </ul>
+            <details class="accordion">
+                <summary>🎧 Tecnología y Equipos</summary>
+                <div class="accordion-content">
+                    <ul class="service-list">
+                        <li><span class="service-name">Bocinas para piscina (con micro, resistente al agua)</span> <span class="service-price">$25</span></li>
+                        <li><span class="service-name">Combo dúo doble poder (buen sonido y batería)</span> <span class="service-price">$55</span></li>
+                        <li><span class="service-name">Audífonos, computadoras y otros</span> <span class="service-price">Venta por pedido (Entrega L-V, 8am a 2pm)</span></li>
+                    </ul>
+                </div>
+            </details>
         </div>
 
         <div class="card" style="text-align: center;">
             <h2>Préstamos Personales</h2>
-            <p style="font-size: 14px; margin-bottom: 15px;">Solo para ciudadanos panameños(as). Solicítalo conmigo.</p>
-            <a href="https://wa.me/50762464619?text=Estoy%20interesado%20en%20un%20prestamo%20personal" class="btn-action" target="_blank">Consultar por préstamo</a>
+            <p style="font-size: 14px; margin-bottom: 15px;">¿Eres panameño(a) y necesitas un préstamo personal? Solicítalo conmigo.</p>
+            <a href="https://wa.me/50762464619?text=Estoy%20interesado%20en%20un%20prestamo%20personal" class="btn-action" target="_blank">Estoy interesado en un préstamo personal</a>
         </div>
 
         <div class="interest-section">
@@ -404,7 +420,7 @@
 
         <div class="footer">
             <strong>Minivacaciones & Destinos</strong>
-            Para urgencias (llamada directa): 6478-7049
+            Para llamadas directas urgentes: 6478-7049
         </div>
 
     </div>
