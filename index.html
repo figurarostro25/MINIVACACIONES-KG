@@ -2,494 +2,315 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Minivacaciones & Destinos - Gasper Rodríguez</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minivacaciones & Destinos | Panamá</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* PALETA DE COLORES (Suave y Divertida) */
         :root {
-            --bg-color: #fffdfa; 
-            --card-bg: #f2faff; 
-            --text-main: #4a4a4a; 
-            --text-muted: #8c8c8c; 
-            --accent: #ffb3a1; 
-            --accent-hover: #ff9f89; 
-            --whatsapp-green: #2aa854; 
-            --shadow: 0 4px 6px rgba(0,0,0,0.1);
-            --font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            -webkit-tap-highlight-color: transparent;
+            --primary-dark: #0f172a; /* Azul muy oscuro/Naval */
+            --primary: #1e3a8a; /* Azul profesional */
+            --accent: #0f766e; /* Verde Teal sofisticado */
+            --bg-color: #f8fafc; /* Fondo gris muy claro */
+            --text-main: #334155;
+            --white: #ffffff;
         }
 
         body {
-            font-family: var(--font-family);
+            font-family: 'Montserrat', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
-            line-height: 1.6;
-            padding-bottom: 30px;
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
         }
 
         .container {
-            width: 100%;
-            max-width: 500px;
+            max-width: 700px;
             margin: 0 auto;
-            padding: 15px;
+            padding: 20px;
+            padding-bottom: 80px; /* Espacio para el botón de WhatsApp */
         }
 
-        /* CABECERA Y LOGO */
-        header {
+        /* Cabecera e Imagen Premium */
+        .hero-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .header {
             text-align: center;
-            padding: 20px 0;
-            border-bottom: 1px solid rgba(255, 179, 161, 0.2); 
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
-        .logo-placeholder {
-            width: 80px;
-            height: 80px;
-            background-color: var(--accent);
-            color: white;
+        /* Logo Estilizado */
+        .logo-premium {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: var(--white);
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-size: 24px;
-            margin: 0 auto 10px;
-            border: 2px solid var(--accent);
+            font-size: 22px;
+            font-weight: 700;
+            margin: -70px auto 15px auto; /* Sube el logo sobre la imagen */
+            box-shadow: 0 8px 20px rgba(30,58,138,0.4);
+            border: 4px solid var(--white);
+            position: relative;
         }
 
-        .header-title {
-            font-size: 1.4rem;
-            color: #ff9f89; 
-            margin-bottom: 5px;
+        .title {
+            color: var(--primary-dark);
+            font-size: 26px;
+            font-weight: 700;
+            margin: 0 0 8px 0;
+            letter-spacing: -0.5px;
         }
 
-        .header-services {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            font-weight: normal;
-            margin-bottom: 5px;
+        .subtitle {
+            color: #64748b;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 500;
         }
 
-        /* SECCIÓN TRADUCTOR */
-        .lang-section {
+        /* Botones de Traducción */
+        .translate-container {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            padding: 10px;
-            margin-bottom: 15px;
-            background-color: rgba(255,255,255,0.8);
-            border-radius: 12px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            gap: 12px;
+            margin-bottom: 25px;
         }
 
-        .btn-translate-small {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            background-color: white;
-            color: #757575;
-            text-decoration: none;
-            padding: 10px 15px;
+        .btn-lang {
+            background: var(--white);
+            border: 1px solid #cbd5e1;
+            padding: 8px 16px;
             border-radius: 8px;
-            font-weight: bold;
-            font-size: 0.85rem;
-            border: 1px solid #dadce0;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-        }
-
-        /* MÉTODOS DE PAGO DESTACADOS ARRIBA */
-        .top-payment-methods {
-            background-color: #e8f5e9; 
-            color: #2e7d32; 
-            text-align: center;
-            padding: 15px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            border: 2px dashed #4caf50;
-            box-shadow: var(--shadow);
-        }
-
-        .top-payment-methods p {
-            margin: 0;
-            font-size: 0.95rem;
-        }
-
-        .payment-icons-large {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-top: 8px !important;
-            color: #1b5e20;
-        }
-
-        /* BIENVENIDA Y GASPER */
-        .welcome-section {
-            background-color: var(--card-bg);
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            box-shadow: var(--shadow);
-            border-left: 4px solid var(--accent);
-        }
-
-        .welcome-title {
-            color: #ff9f89; 
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-
-        .welcome-text {
-            font-size: 0.9rem;
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 600;
             color: var(--text-main);
-            margin-bottom: 15px;
-        }
-        
-        .uber-info {
-            font-size: 0.85rem;
-            color: var(--text-main);
-            background: rgba(255, 179, 161, 0.2); 
-            padding: 12px;
-            border-radius: 6px;
-            text-align: center;
-            border: 1px solid rgba(255, 179, 161, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        /* BOTONES WHATSAPP */
-        .btn-whatsapp {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            padding: 15px 10px;
-            border-radius: 12px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            text-align: center;
-            box-shadow: var(--shadow);
-            background-color: var(--whatsapp-green);
-            color: white;
-            gap: 10px;
-            transition: transform 0.1s;
-            margin-bottom: 15px;
+        .btn-lang:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background-color: #f1f5f9;
         }
 
-        .btn-whatsapp:active { transform: scale(0.97); }
-        .icon-big { font-size: 2.2rem; }
-
-        .chat-friendly-box {
-            background-color: #fffaf2;
+        /* Banner de Pagos (Elegante) */
+        .payment-banner {
+            background: linear-gradient(135deg, var(--accent), #115e59);
+            color: var(--white);
             padding: 18px;
             border-radius: 12px;
-            margin-bottom: 25px;
             text-align: center;
-            border: 1px solid #ffe0b2;
-            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            box-shadow: 0 6px 15px rgba(15, 118, 110, 0.2);
         }
 
-        /* TÍTULOS DE SECCIÓN */
-        .section-title {
-            font-size: 1.1rem;
-            color: #ff9f89; 
-            text-transform: uppercase;
+        .payment-banner h3 {
+            margin: 0 0 10px 0;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .payment-methods {
+            font-weight: 700;
+            font-size: 14px;
             letter-spacing: 1px;
-            margin: 25px 0 15px 5px;
+        }
+
+        /* Tarjeta Principal de Presentación */
+        .presentation-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            border-left: 6px solid var(--primary);
+            margin-bottom: 30px;
+        }
+
+        .presentation-card h2 {
+            color: var(--primary);
+            margin-top: 0;
+            font-size: 20px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .presentation-card p {
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+
+        /* Pestaña / Sección de Emergencias */
+        .emergency-section {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid #e2e8f0;
+        }
+
+        .emergency-header {
+            background: #f87171;
+            color: white;
+            padding: 15px 20px;
+            font-weight: 600;
+            font-size: 16px;
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        .section-title::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background-color: rgba(255, 179, 161, 0.3); 
+
+        .emergency-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 20px;
         }
 
-        /* MENÚ DE PRECIOS Y SERVICIOS */
-        .price-menu {
+        .emergency-item {
+            background: #fef2f2;
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 4px solid #ef4444;
             display: flex;
             flex-direction: column;
-            gap: 10px;
         }
 
-        .price-item {
-            background-color: var(--card-bg);
-            padding: 15px;
-            border-radius: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        .emergency-name {
+            font-size: 12px;
+            color: #7f1d1d;
+            font-weight: 600;
+            text-transform: uppercase;
         }
 
-        .destination {
-            font-weight: bold;
-            font-size: 0.95rem;
-            color: var(--text-main);
-            max-width: 65%;
+        .emergency-number {
+            font-size: 18px;
+            color: #b91c1c;
+            font-weight: 700;
         }
 
-        .price {
-            color: #ff9f89; 
-            font-weight: bold;
-            font-size: 1rem;
-            text-align: right;
-        }
-
-        .price-subtext {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            display: inline-block;
-            font-weight: normal;
-        }
-
-        /* BOTONES INDIVIDUALES (Restaurantes) */
-        .single-button {
-            display: block;
-            background-color: var(--card-bg);
-            color: var(--text-main);
-            text-decoration: none;
-            padding: 18px;
-            border-radius: 12px;
-            text-align: center;
-            font-weight: bold;
-            margin-bottom: 15px;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-        
-        .btn-update {
-            background-color: #f1fcf1; 
-            color: var(--text-muted);
-            font-weight: normal;
-            font-style: italic;
-            font-size: 0.9rem;
-        }
-
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 20px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            border-top: 1px solid rgba(255, 179, 161, 0.2);
-        }
-        
-        .negocia-box {
-            background-color: var(--accent);
+        /* Botón Flotante de WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25D366;
             color: white;
-            padding: 10px;
-            border-radius: 8px;
-            font-weight: bold;
-            margin-bottom: 10px;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 1000;
         }
 
-        .urgent-call {
-            display: block;
-            margin-top: 15px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #ff9f89;
+        .whatsapp-float:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
         }
 
-        .icon { font-style: normal; }
-
+        /* Ícono simple de WA en CSS */
+        .wa-icon {
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+        }
+        
+        @media (max-width: 600px) {
+            .emergency-grid {
+                grid-template-columns: 1fr;
+            }
+            .presentation-card {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
+    <div class="container">
+        
+        <img src="https://images.unsplash.com/photo-1517505973322-297f62e830c2?q=80&w=1000&auto=format&fit=crop" alt="Ciudad de Panamá" class="hero-image">
 
-    <header>
-        <div class="logo-placeholder">🧳M&D✈️</div>
-        <h1 class="header-title">Minivacaciones & Destinos</h1>
-        <p class="header-services">Reserva Hospedajes - Transporte Privado - Negocios</p>
-    </header>
-
-    <div class="lang-section">
-        <a href="https://translate.google.com/m/translate?hl=es&sl=es&tl=en" target="_blank" class="btn-translate-small">
-            🇬🇧 Translate
-        </a>
-        <a href="https://translate.google.com/m/translate?hl=es&sl=en&tl=es" target="_blank" class="btn-translate-small">
-            🇪🇸 Traducir
-        </a>
-    </div>
-
-    <div class="top-payment-methods">
-        <p><strong>¡Acepto pagos con!</strong></p>
-        <p class="payment-icons-large">💳 Visa | 📱 Yappi | 💵 Cash</p>
-    </div>
-
-    <div class="welcome-section">
-        <h2 class="welcome-title">¡Damas y caballeros, bienvenidos a Panamá!</h2>
-        <p class="welcome-text">
-            Mi nombre es Gasper Rodriguez, y estoy aquí para que su experiencia sea cómoda, fluida y bien acompañada, ya sea por turismo o negocios.<br><br>
-            Pueden contar conmigo como su apoyo local: traslados, recorridos, orientación en la ciudad o simplemente alguien de confianza con quien conversar. Mi objetivo es que se sientan respaldados en todo momento durante su estadía.<br><br>
-            Cuento con un perfil integral enfocado en soluciones: desarrollo sitios web en tiempo récord, brindo asesoría en ventas y negocios, apoyo en la creación de ideas, resolución de problemas y acompañamiento con enfoque humano.<br><br>
-            Más que múltiples servicios, ofrezco criterio, experiencia y confianza en un solo contacto.<br><br>
-            Incluso después de su viaje, quedo a la orden para gestiones digitales, asesorías y apoyo en reservas internacionales.<br><br>
-            Estoy aquí para ayudarte. Bienvenido, cuenta conmigo 🤝
-        </p>
-        <div class="uber-info">
-            <strong>🚘 ¡Viaja cómodo!</strong><br>
-            Todo traslado se realiza en Uber Confort Toyota Corolla 2025 camioneta con suspensión más silenciosa y más capacidad de peso y confort.
+        <div class="header">
+            <div class="logo-premium">M&D</div>
+            <h1 class="title">Minivacaciones & Destinos</h1>
+            <div class="subtitle">Reserva Hospedajes • Transporte Privado • Negocios</div>
         </div>
+
+        <div class="translate-container">
+            <button class="btn-lang">🇬🇧 Translate</button>
+            <button class="btn-lang">🇪🇸 Traducir</button>
+        </div>
+
+        <div class="payment-banner">
+            <h3>¡Aceptamos pagos con!</h3>
+            <div class="payment-methods">
+                💳 Visa | 📱 Yappi | 💵 Efectivo
+            </div>
+        </div>
+
+        <div class="presentation-card">
+            <h2>¡Damas y caballeros, bienvenidos a Panamá!</h2>
+            <p>Mi nombre es Gasper Rodriguez, y estoy aquí para que su experiencia sea cómoda, fluida y bien acompañada, ya sea por turismo o negocios.</p>
+            <p>Pueden contar conmigo como su apoyo local: traslados, recorridos, orientación en la ciudad o simplemente alguien de confianza con quien conversar. Mi objetivo es que se sientan respaldados en todo momento durante su estadía.</p>
+            <p>Cuento con un perfil integral enfocado en soluciones: desarrollo sitios web en tiempo récord, brindo asesoría en ventas y negocios, apoyo en la creación de ideas, resolución de problemas y acompañamiento con enfoque humano.</p>
+            <p>Más que múltiples servicios, ofrezco criterio, experiencia y confianza en un solo contacto.</p>
+            <p>Incluso después de su viaje, quedo a la orden para gestiones digitales, asesorías y apoyo en reservas internacionales.</p>
+        </div>
+
+        <div class="emergency-section">
+            <div class="emergency-header">
+                🚨 Directorio de Emergencias (Panamá)
+            </div>
+            <div class="emergency-grid">
+                <div class="emergency-item">
+                    <span class="emergency-name">Policía Nacional</span>
+                    <span class="emergency-number">104</span>
+                </div>
+                <div class="emergency-item">
+                    <span class="emergency-name">Ambulancia (SUME)</span>
+                    <span class="emergency-number">911</span>
+                </div>
+                <div class="emergency-item">
+                    <span class="emergency-name">Bomberos</span>
+                    <span class="emergency-number">103</span>
+                </div>
+                <div class="emergency-item">
+                    <span class="emergency-name">Protección Civil (SINAPROC)</span>
+                    <span class="emergency-number">335</span>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <a href="https://wa.me/50762464619?text=Hola%20Gasper,%20quiero%20consultar%20unas%20tarifas" class="btn-whatsapp">
-        <i class="icon icon-big">💬</i>
-        <span>Consulta tarifas con Gasper ahora</span>
+    <a href="#" class="whatsapp-float">
+        <span class="wa-icon"></span>
+        WhatsApp
     </a>
-
-    <div class="chat-friendly-box">
-        <p style="font-size: 0.95rem; margin-bottom: 12px; color: var(--text-main);">
-            <em>¿Deseas chatear con alguien y consultar cosas?</em><br><br>
-            Me puedes chatear con tranquilidad y confianza, te atenderé cordialmente. No siempre se gana dinero, también se gana amistad y gratitud. Si hablas español o si hablas poquito español, me llamas o escribes.
-        </p>
-        <a href="https://wa.me/50762464619?text=Hola%20Gasper,%20quiero%20hablar%20contigo" class="btn-whatsapp" style="margin-bottom: 0; padding: 12px; font-size: 1rem; background-color: #24914a;">
-            <i class="icon">👋</i> Hablar con Gasper
-        </a>
-    </div>
-
-    <h3 class="section-title"><i class="icon">🚐</i> Tours y Traslados</h3>
-    <div class="price-menu">
-        
-        <div class="price-item" style="flex-direction: column; align-items: flex-start;">
-            <span class="destination" style="max-width: 100%; margin-bottom: 5px;">Alquiler de auto con chofer</span>
-            <span class="price" style="font-size: 0.95rem; text-align: left; white-space: normal; color: var(--text-main);">
-                Diario <strong style="color:var(--accent)">$65</strong><br>
-                <span class="price-subtext" style="display: block; margin-top: 3px; line-height: 1.3;">
-                    <em>(+ gasolina y gastos de corredor)</em>
-                </span>
-            </span>
-        </div>
-
-        <div class="price-item" style="flex-direction: column; align-items: flex-start;">
-            <span class="destination" style="max-width: 100%; margin-bottom: 5px;">Traslado Aeropuerto a Hotel</span>
-            <span class="price" style="font-size: 0.95rem; text-align: left; white-space: normal; color: var(--text-main);">
-                Vehículo Confort <strong style="color:var(--accent)">$25 + fee</strong><br>
-                <span class="price-subtext" style="display: block; margin-top: 5px; line-height: 1.3;">
-                    <em>(Si va a acompañar a su familiar, el retorno a Ciudad de Panamá tiene un costo de <strong>$10</strong>)</em>
-                </span>
-            </span>
-        </div>
-
-        <div class="price-item">
-            <span class="destination">Isla Perico (Amador)</span>
-            <span class="price">$8 <span class="price-subtext">(ida)</span></span>
-        </div>
-
-        <div class="price-item">
-            <span class="destination">Exclusas Miraflores</span>
-            <span class="price">$8 <span class="price-subtext">(ida)</span> + $8 <span class="price-subtext">(retorno)</span></span>
-        </div>
-
-        <div class="price-item">
-            <span class="destination">Veracruz</span>
-            <span class="price">$22 <span class="price-subtext">(ida y vuelta)</span></span>
-        </div>
-
-        <div class="price-item">
-            <span class="destination">Colon 2000 o Zona Libre</span>
-            <span class="price"><span class="price-subtext">desde</span> $85</span>
-        </div>
-
-        <div class="price-item">
-            <span class="destination">Valle de Antón</span>
-            <span class="price"><span class="price-subtext">desde</span> $110</span>
-        </div>
-
-        <div class="price-item">
-            <span class="destination">Dia Playa Santa Clara</span>
-            <span class="price"><span class="price-subtext">desde</span> $125</span>
-        </div>
-
-        <div class="price-item" style="flex-direction: column; align-items: flex-start;">
-            <span class="destination" style="max-width: 100%; margin-bottom: 5px;">Tours Chiriquí (2 a 3 dias)</span>
-            <span class="price" style="font-size: 0.9rem; text-align: left; white-space: normal; color: var(--text-main);">
-                <span class="price-subtext" style="display: inline;">(Combustible + hospedaje + comida +</span> <strong style="color:var(--accent)">$80 diario</strong>)
-            </span>
-        </div>
-
-        <div class="price-item" style="flex-direction: column; align-items: flex-start;">
-            <span class="destination" style="max-width: 100%; margin-bottom: 5px;">Bocas del Toro</span>
-            <span class="price" style="font-size: 0.9rem; text-align: left; white-space: normal; color: var(--text-main);">
-                <span class="price-subtext" style="display: inline;">(Combustible + costos +</span> <strong style="color:var(--accent)">$80 diario</strong>)
-            </span>
-        </div>
-
-    </div>
-
-    <h3 class="section-title"><i class="icon">🛍️</i> Servicios y Productos en venta</h3>
-    <div class="price-menu">
-        
-        <div class="price-item">
-            <span class="destination">Masajes Relajantes</span>
-            <span class="price">$35 <span class="price-subtext">(30 min)</span> / $65 <span class="price-subtext">(60 min)</span></span>
-        </div>
-        
-        <div class="price-item">
-            <span class="destination">Limpiezas faciales</span>
-            <span class="price"><span class="price-subtext">desde</span> $35</span>
-        </div>
-        
-        <div class="price-item" style="flex-direction: column; align-items: flex-start;">
-            <span class="destination" style="max-width: 100%; margin-bottom: 5px;">Masaje reductor con hidrolipoclasia</span>
-            <span class="price" style="font-size: 0.9rem; text-align: left; white-space: normal; color: var(--text-main);">
-                <span class="price-subtext" style="display:inline;">(Bajar rápido de peso)</span> <strong style="color:var(--accent)">$200</strong>
-            </span>
-        </div>
-        
-        <div class="price-item">
-            <span class="destination">Otros servicios estéticos</span>
-            <span class="price">Consultar</span>
-        </div>
-
-        <div class="price-item" style="flex-direction: column; align-items: flex-start;">
-            <span class="destination" style="max-width: 100%; margin-bottom: 5px;">Bocinas resistentes al agua con micrófono</span>
-            <span class="price" style="font-size: 0.9rem; text-align: left; white-space: normal; color: var(--text-main);">
-                <span class="price-subtext" style="display: block;">Ideal playas y piscinas.</span>
-                Individual <strong style="color:var(--accent)">$25</strong> <br>
-                Combo dúo doble poder <strong style="color:var(--accent)">$55</strong> <span class="price-subtext" style="display:inline;">(Suenan bien y dura bastante la batería)</span>
-            </span>
-        </div>
-
-        <div class="price-item" style="flex-direction: column; align-items: flex-start;">
-            <span class="destination" style="max-width: 100%; margin-bottom: 5px;">Audífonos, computadoras y otros artículos</span>
-            <span class="price" style="font-size: 0.85rem; text-align: left; white-space: normal; color: var(--text-muted);">
-                Venta por pedido con entrega el mismo día de lunes a viernes de 8am a 2pm.
-            </span>
-        </div>
-
-        <div class="price-item" style="flex-direction: column; align-items: flex-start;">
-            <span class="destination" style="max-width: 100%; margin-bottom: 5px;">Transporte en Pick Up de Carga</span>
-            <span class="price" style="font-size: 0.9rem; text-align: left; white-space: normal; color: var(--text-main);">
-                Traslado pesado en vehículo 4x4 <span class="price-subtext" style="display:inline;">desde</span> <strong style="color:var(--accent)">$25</strong> en ciudad.<br>
-                <span class="price-subtext" style="display: block; margin-top: 3px;">Tours a precio negociable.</span>
-            </span>
-        </div>
-
-    </div>
-
-    <h3 class="section-title"><i class="icon">🍽️</i> Gastronomía</h3>
-    <a href="https://wa.me/50762464619?text=Hola%20Gasper,%20quiero%20recomendaciones%20de%20restaurantes" class="single-button btn-update">
-        🍽️ Dónde comer<br>
-        <small>(Se están actualizando los restaurantes, consulta con Gasper)</small>
-    </a>
-
-    <footer>
-        <div class="negocia-box">Negocia o consulta con Gasper para una mejor experiencia.</div>
-        <p>Minivacaciones & Destinos © 2026</p>
-        <p>Panamá</p>
-        <span class="urgent-call">📞 Llamadas directas urgentes: 6478-7049</span>
-    </footer>
-
-</div>
 
 </body>
 </html>
