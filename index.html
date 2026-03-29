@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Minivacaciones & Destinos - Gasper Rodríguez</title>
     <style>
-        /* NUEVA PALETA DE COLORES (Suave y Divertida) */
+        /* PALETA DE COLORES (Suave y Divertida) */
         :root {
-            --bg-color: #fffdfa; /* Crema muy suave */
-            --card-bg: #f2faff; /* Azul pastel muy pálido para tarjetas */
-            --text-main: #4a4a4a; /* Gris oscuro suave para el texto */
-            --text-muted: #8c8c8c; /* Gris medio para texto secundario */
-            --accent: #ffb3a1; /* Rosa coral suave y alegre */
-            --accent-hover: #ff9f89; /* Coral un poco más fuerte para hover */
-            --whatsapp-green: #25D366; /* Mantenemos el verde WhatsApp original */
+            --bg-color: #fffdfa; 
+            --card-bg: #f2faff; 
+            --text-main: #4a4a4a; 
+            --text-muted: #8c8c8c; 
+            --accent: #ffb3a1; 
+            --accent-hover: #ff9f89; 
+            --whatsapp-green: #25D366; 
             --shadow: 0 4px 6px rgba(0,0,0,0.1);
             --font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
@@ -33,7 +33,6 @@
             padding-bottom: 30px;
         }
 
-        /* CONTENEDOR PRINCIPAL */
         .container {
             width: 100%;
             max-width: 500px;
@@ -45,7 +44,7 @@
         header {
             text-align: center;
             padding: 20px 0;
-            border-bottom: 1px solid rgba(255, 179, 161, 0.2); /* Borde suave coral */
+            border-bottom: 1px solid rgba(255, 179, 161, 0.2); 
             margin-bottom: 20px;
         }
 
@@ -53,7 +52,7 @@
             width: 80px;
             height: 80px;
             background-color: var(--accent);
-            color: var(--bg-color);
+            color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -66,11 +65,10 @@
 
         .header-title {
             font-size: 1.4rem;
-            color: #ff9f89; /* Tono coral un poco más fuerte para el título principal */
+            color: #ff9f89; 
             margin-bottom: 5px;
         }
 
-        /* NUEVA SUBTÍTULO EN HEADER */
         .header-services {
             font-size: 0.95rem;
             color: var(--text-muted);
@@ -78,19 +76,13 @@
             margin-bottom: 5px;
         }
 
-        .subtitle {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            font-weight: normal;
-        }
-
-        /* SECCIÓN TRADUCTOR (Nuevos botones pequeños y discretos) */
+        /* SECCIÓN TRADUCTOR */
         .lang-section {
             display: flex;
             justify-content: center;
             gap: 15px;
             padding: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             background-color: rgba(255,255,255,0.8);
             border-radius: 12px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
@@ -109,15 +101,30 @@
             font-size: 0.85rem;
             border: 1px solid #dadce0;
             box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-            transition: background-color 0.2s;
         }
 
-        .btn-translate-small:hover {
-            background-color: #f8f9fa;
+        /* MÉTODOS DE PAGO DESTACADOS ARRIBA */
+        .top-payment-methods {
+            background-color: #e8f5e9; /* Verde muy suave para dar confianza */
+            color: #2e7d32; /* Verde oscuro */
+            text-align: center;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 2px dashed #4caf50;
+            box-shadow: var(--shadow);
         }
 
-        .flag-icon {
-            font-size: 1.1rem;
+        .top-payment-methods p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .payment-icons-large {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 8px !important;
+            color: #1b5e20;
         }
 
         /* BIENVENIDA Y GASPER */
@@ -131,7 +138,7 @@
         }
 
         .welcome-title {
-            color: #ff9f89; /* Coral más fuerte para título de bienvenida */
+            color: #ff9f89; 
             font-size: 1.2rem;
             margin-bottom: 10px;
         }
@@ -146,64 +153,44 @@
             font-size: 0.85rem;
             color: var(--text-muted);
             font-weight: bold;
-            background: rgba(255, 179, 161, 0.1); /* Tono suave coral */
+            background: rgba(255, 179, 161, 0.1); 
             padding: 8px;
             border-radius: 6px;
             text-align: center;
         }
 
-        /* BOTONES DE ACCIÓN PRINCIPAL */
+        /* BOTÓN WHATSAPP ÚNICO Y GRANDE */
         .action-buttons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
+            flex-direction: column;
             gap: 15px;
             margin-bottom: 25px;
         }
 
-        .btn-action {
+        .btn-whatsapp {
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-decoration: none;
             padding: 20px 10px;
             border-radius: 12px;
             font-weight: bold;
-            font-size: 0.9rem;
+            font-size: 1.1rem;
             text-align: center;
             box-shadow: var(--shadow);
+            background-color: var(--whatsapp-green);
+            color: white;
+            gap: 10px;
             transition: transform 0.1s;
         }
 
-        .btn-action:active { transform: scale(0.97); }
-
-        .btn-whatsapp {
-            background-color: var(--whatsapp-green);
-            color: white;
-            grid-column: span 2;
-            flex-direction: row;
-            gap: 10px;
-            font-size: 1.1rem;
-        }
-
-        .btn-map {
-            background-color: #a3cfff; /* Azul pastel para el mapa */
-            color: white;
-        }
-
-        .btn-hotels {
-            background-color: var(--card-bg);
-            color: #ff9f89; /* Coral para el botón de hoteles */
-            border: 2px solid #ff9f89;
-        }
-
-        .icon-big { font-size: 2rem; margin-bottom: 5px; }
-        .btn-whatsapp .icon-big { margin-bottom: 0; }
+        .btn-whatsapp:active { transform: scale(0.97); }
+        .icon-big { font-size: 2.2rem; }
 
         /* TÍTULOS DE SECCIÓN */
         .section-title {
             font-size: 1.1rem;
-            color: #ff9f89; /* Coral para los títulos de sección */
+            color: #ff9f89; 
             text-transform: uppercase;
             letter-spacing: 1px;
             margin: 25px 0 15px 5px;
@@ -215,7 +202,7 @@
             content: "";
             flex: 1;
             height: 1px;
-            background-color: rgba(255, 179, 161, 0.3); /* Línea coral suave */
+            background-color: rgba(255, 179, 161, 0.3); 
         }
 
         /* MENÚ DE PRECIOS */
@@ -243,7 +230,7 @@
         }
 
         .price {
-            color: #ff9f89; /* Coral para los precios */
+            color: #ff9f89; 
             font-weight: bold;
             font-size: 1rem;
             text-align: right;
@@ -257,7 +244,7 @@
             font-weight: normal;
         }
 
-        /* BOTONES INDIVIDUALES GRANDES */
+        /* BOTONES INDIVIDUALES (Restaurantes) */
         .single-button {
             display: block;
             background-color: var(--card-bg);
@@ -273,35 +260,11 @@
         }
         
         .btn-update {
-            background-color: #f1fcf1; /* Verde pastel muy pálido para el botón de actualizar */
+            background-color: #f1fcf1; 
             color: var(--text-muted);
             font-weight: normal;
             font-style: italic;
             font-size: 0.9rem;
-        }
-
-        /* MÉTODOS DE PAGO */
-        .payment-methods {
-            background-color: rgba(255, 179, 161, 0.05); /* Tono suave coral */
-            text-align: center;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 30px;
-            border: 1px solid rgba(255, 179, 161, 0.1);
-        }
-
-        .payment-title {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-
-        .payment-icons {
-            font-size: 0.9rem;
-            color: #ff9f89; /* Coral para iconos de pago */
-            font-weight: bold;
-            letter-spacing: 1px;
         }
 
         /* FOOTER */
@@ -316,7 +279,7 @@
         
         .negocia-box {
             background-color: var(--accent);
-            color: white; /* Texto blanco sobre coral */
+            color: white;
             padding: 10px;
             border-radius: 8px;
             font-weight: bold;
@@ -335,16 +298,20 @@
         <div class="logo-placeholder">🧳M&D✈️</div>
         <h1 class="header-title">Minivacaciones & Destinos</h1>
         <p class="header-services">Reserva Hospedajes - Transporte Privado - Negocios</p>
-        <div class="subtitle">Reserva de Hoteles, Traslados, Tours</div>
     </header>
 
     <div class="lang-section">
         <a href="https://translate.google.com/m/translate?hl=es&sl=es&tl=en" target="_blank" class="btn-translate-small">
-            <span class="flag-icon">🇬🇧</span> Translate to English
+            🇬🇧 Translate
         </a>
         <a href="https://translate.google.com/m/translate?hl=es&sl=en&tl=es" target="_blank" class="btn-translate-small">
-            <span class="flag-icon">🇪🇸</span> Traducir a Español
+            🇪🇸 Traducir
         </a>
+    </div>
+
+    <div class="top-payment-methods">
+        <p><strong>¡Acepto pagos con!</strong></p>
+        <p class="payment-icons-large">💳 Visa | 📱 Yappi | 💵 Cash</p>
     </div>
 
     <div class="welcome-section">
@@ -356,19 +323,9 @@
     </div>
 
     <div class="action-buttons">
-        <a href="https://wa.me/50762464619?text=Hola%20Gasper,%20vi%20tu%20página%20y%20necesito%20información" class="btn-action btn-whatsapp">
+        <a href="https://wa.me/50762464619?text=Hola%20Gasper,%20quiero%20consultar%20unas%20tarifas" class="btn-whatsapp">
             <i class="icon icon-big">💬</i>
-            <span>Contactar a Gasper<br><small>6246-4619 (24h)</small></span>
-        </a>
-
-        <a href="https://www.google.com/maps/d/viewer?mid=1QToXG9w4S_hOub_y_R9_H-H6C7-y7Hk&usp=sharing" target="_blank" class="btn-action btn-map">
-            <i class="icon icon-big">📍</i>
-            Mapa Interés
-        </a>
-
-        <a href="#hoteles" class="btn-action btn-hotels">
-            <i class="icon icon-big">🏨</i>
-            Ejemplos Hoteles
+            <span>Consulta tarifas con Gasper ahora<br><small>6246-4619 (24h)</small></span>
         </a>
     </div>
 
@@ -422,20 +379,10 @@
     </div>
 
     <h3 class="section-title"><i class="icon">🍽️</i> Gastronomía</h3>
-    <a href="#" class="single-button btn-update">
+    <a href="https://wa.me/50762464619?text=Hola%20Gasper,%20quiero%20recomendaciones%20de%20restaurantes" class="single-button btn-update">
         🍽️ Dónde comer<br>
         <small>(Se están actualizando los restaurantes, consulta con Gasper)</small>
     </a>
-
-    <h3 class="section-title" id="hoteles"><i class="icon">🏨</i> Alojamiento</h3>
-    <a href="https://wa.me/50762464619?text=Hola%20Gasper,%20quiero%20ver%20ejemplos%20de%20hoteles" class="single-button">
-        🏨 Ver ejemplos de Hoteles para reservar
-    </a>
-
-    <div class="payment-methods">
-        <p class="payment-title">Formas de Pago</p>
-        <p class="payment-icons">Efectivo | Yappi | Tarjeta de Crédito</p>
-    </div>
 
     <footer>
         <div class="negocia-box">Negocia o consulta con Gasper para una mejor experiencia.</div>
