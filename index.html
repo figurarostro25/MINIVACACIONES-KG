@@ -13,7 +13,7 @@
             --text-muted: #8c8c8c; 
             --accent: #ffb3a1; 
             --accent-hover: #ff9f89; 
-            --whatsapp-green: #25D366; 
+            --whatsapp-green: #2aa854; /* Verde más suave y elegante, menos chillón */
             --shadow: 0 4px 6px rgba(0,0,0,0.1);
             --font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
@@ -159,20 +159,13 @@
             border: 1px solid rgba(255, 179, 161, 0.5);
         }
 
-        /* BOTÓN WHATSAPP ÚNICO Y GRANDE */
-        .action-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
+        /* BOTONES WHATSAPP */
         .btn-whatsapp {
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            padding: 20px 10px;
+            padding: 15px 10px;
             border-radius: 12px;
             font-weight: bold;
             font-size: 1.1rem;
@@ -182,10 +175,21 @@
             color: white;
             gap: 10px;
             transition: transform 0.1s;
+            margin-bottom: 15px;
         }
 
         .btn-whatsapp:active { transform: scale(0.97); }
         .icon-big { font-size: 2.2rem; }
+
+        .chat-friendly-box {
+            background-color: #fffaf2;
+            padding: 18px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            text-align: center;
+            border: 1px solid #ffe0b2;
+            box-shadow: var(--shadow);
+        }
 
         /* TÍTULOS DE SECCIÓN */
         .section-title {
@@ -205,7 +209,7 @@
             background-color: rgba(255, 179, 161, 0.3); 
         }
 
-        /* MENÚ DE PRECIOS */
+        /* MENÚ DE PRECIOS Y SERVICIOS */
         .price-menu {
             display: flex;
             flex-direction: column;
@@ -285,6 +289,14 @@
             margin-bottom: 10px;
         }
 
+        .urgent-call {
+            display: block;
+            margin-top: 15px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #ff9f89;
+        }
+
         .icon { font-style: normal; }
 
     </style>
@@ -314,20 +326,33 @@
     </div>
 
     <div class="welcome-section">
-        <h2 class="welcome-title">¡Bienvenidos a Panamá!</h2>
+        <h2 class="welcome-title">¡Damas y caballeros, bienvenidos a Panamá!</h2>
         <p class="welcome-text">
-            Soy <strong>Gasper Rodríguez</strong>, una persona natural y de confianza. He organizado estos tours porque estoy abriendo mi propia empresa. Los llevaré a donde gusten con tranquilidad para hacer sus compras o pasear. Conózcanme para que estén cómodos, como su nuevo amigo en Panamá.
+            Mi nombre es Gasper Rodriguez, y estoy aquí para que su experiencia sea cómoda, fluida y bien acompañada, ya sea por turismo o negocios.<br><br>
+            Pueden contar conmigo como su apoyo local: traslados, recorridos, orientación en la ciudad o simplemente alguien de confianza con quien conversar. Mi objetivo es que se sientan respaldados en todo momento durante su estadía.<br><br>
+            Cuento con un perfil integral enfocado en soluciones: desarrollo sitios web en tiempo récord, brindo asesoría en ventas y negocios, apoyo en la creación de ideas, resolución de problemas y acompañamiento con enfoque humano.<br><br>
+            Más que múltiples servicios, ofrezco criterio, experiencia y confianza en un solo contacto.<br><br>
+            Incluso después de su viaje, quedo a la orden para gestiones digitales, asesorías y apoyo en reservas internacionales.<br><br>
+            Estoy aquí para ayudarte. Bienvenido, cuenta conmigo 🤝
         </p>
         <div class="uber-info">
             <strong>🚘 ¡Viaja cómodo!</strong><br>
-            Todo traslado se realiza en Vehículo Uber Confort, ofreciendo una experiencia superior con un precio más accesible.
+            Todo traslado se realiza en Uber Confort Toyota Corolla 2025 camioneta con suspensión más silenciosa y más capacidad de peso y confort.
         </div>
     </div>
 
-    <div class="action-buttons">
-        <a href="https://wa.me/50762464619?text=Hola%20Gasper,%20quiero%20consultar%20unas%20tarifas" class="btn-whatsapp">
-            <i class="icon icon-big">💬</i>
-            <span>Consulta tarifas con Gasper ahora<br><small>6246-4619 (24h)</small></span>
+    <a href="https://wa.me/50762464619?text=Hola%20Gasper,%20quiero%20consultar%20unas%20tarifas" class="btn-whatsapp">
+        <i class="icon icon-big">💬</i>
+        <span>Consulta tarifas con Gasper ahora</span>
+    </a>
+
+    <div class="chat-friendly-box">
+        <p style="font-size: 0.95rem; margin-bottom: 12px; color: var(--text-main);">
+            <em>¿Deseas chatear con alguien y consultar cosas?</em><br><br>
+            Me puedes chatear con tranquilidad y confianza, te atenderé cordialmente. No siempre se gana dinero, también se gana amistad y gratitud. Si hablas español o si hablas poquito español, me llamas o escribes.
+        </p>
+        <a href="https://wa.me/50762464619?text=Hola%20Gasper,%20quiero%20hablar%20contigo" class="btn-whatsapp" style="margin-bottom: 0; padding: 12px; font-size: 1rem; background-color: #24914a;">
+            <i class="icon">👋</i> Hablar con Gasper
         </a>
     </div>
 
@@ -390,6 +415,64 @@
 
     </div>
 
+    <h3 class="section-title"><i class="icon">🛍️</i> Servicios y Productos en venta</h3>
+    <div class="price-menu">
+        
+        <div class="price-item">
+            <span class="destination">Masajes Relajantes</span>
+            <span class="price">$35 <span class="price-subtext">(30 min)</span> / $65 <span class="price-subtext">(60 min)</span></span>
+        </div>
+        
+        <div class="price-item">
+            <span class="destination">Limpiezas faciales</span>
+            <span class="price"><span class="price-subtext">desde</span> $35</span>
+        </div>
+        
+        <div class="price-item" style="flex-direction: column; align-items: flex-start;">
+            <span class="destination" style="max-width: 100%; margin-bottom: 5px;">Masaje reductor con hidrolipoclasia</span>
+            <span class="price" style="font-size: 0.9rem; text-align: left; white-space: normal; color: var(--text-main);">
+                <span class="price-subtext" style="display:inline;">(Bajar rápido de peso)</span> <strong style="color:var(--accent)">$200</strong>
+            </span>
+        </div>
+        
+        <div class="price-item">
+            <span class="destination">Otros servicios estéticos</span>
+            <span class="price">Consultar</span>
+        </div>
+
+        <div class="price-item" style="flex-direction: column; align-items: flex-start;">
+            <span class="destination" style="max-width: 100%; margin-bottom: 5px;">Bocinas resistentes al agua con micrófono</span>
+            <span class="price" style="font-size: 0.9rem; text-align: left; white-space: normal; color: var(--text-main);">
+                <span class="price-subtext" style="display: block;">Ideal playas y piscinas.</span>
+                Individual <strong style="color:var(--accent)">$25</strong> <br>
+                Combo dúo doble poder <strong style="color:var(--accent)">$55</strong> <span class="price-subtext" style="display:inline;">(Suenan bien y dura bastante la batería)</span>
+            </span>
+        </div>
+
+        <div class="price-item" style="flex-direction: column; align-items: flex-start;">
+            <span class="destination" style="max-width: 100%; margin-bottom: 5px;">Audífonos, computadoras y otros artículos</span>
+            <span class="price" style="font-size: 0.85rem; text-align: left; white-space: normal; color: var(--text-muted);">
+                Venta por pedido con entrega el mismo día de lunes a viernes de 8am a 2pm.
+            </span>
+        </div>
+
+        <div class="price-item" style="flex-direction: column; align-items: flex-start;">
+            <span class="destination" style="max-width: 100%; margin-bottom: 5px;">Transporte en Pick Up de Carga</span>
+            <span class="price" style="font-size: 0.9rem; text-align: left; white-space: normal; color: var(--text-main);">
+                Traslado pesado en vehículo 4x4 <span class="price-subtext" style="display:inline;">desde</span> <strong style="color:var(--accent)">$25</strong> en ciudad.<br>
+                <span class="price-subtext" style="display: block; margin-top: 3px;">Tours a precio negociable.</span>
+            </span>
+        </div>
+
+        <div class="price-item" style="flex-direction: column; align-items: center; text-align: center; background-color: #fff9e6; border: 1px solid #ffe082; margin-top: 10px;">
+            <span class="destination" style="max-width: 100%; margin-bottom: 12px; color: #b78103; font-size: 1rem;">¿Eres panameño(a) y necesitas un préstamo personal?</span>
+            <a href="https://wa.me/50762464619?text=Estoy%20interesado%20en%20un%20prestamo%20personal" style="background-color: #ffb3a1; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 0.95rem; width: 100%; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                🏦 Solicítalo conmigo aquí
+            </a>
+        </div>
+
+    </div>
+
     <h3 class="section-title"><i class="icon">🍽️</i> Gastronomía</h3>
     <a href="https://wa.me/50762464619?text=Hola%20Gasper,%20quiero%20recomendaciones%20de%20restaurantes" class="single-button btn-update">
         🍽️ Dónde comer<br>
@@ -400,6 +483,7 @@
         <div class="negocia-box">Negocia o consulta con Gasper para una mejor experiencia.</div>
         <p>Minivacaciones & Destinos © 2026</p>
         <p>Panamá</p>
+        <span class="urgent-call">📞 Llamadas directas urgentes: 6478-7049</span>
     </footer>
 
 </div>
