@@ -312,7 +312,7 @@
 
         .footer strong { color: var(--primary-dark); display: block; }
 
-        /* WhatsApp */
+        /* Botones Flotantes (WhatsApp y WiFi) */
         .whatsapp-float {
             position: fixed;
             bottom: 20px;
@@ -330,11 +330,62 @@
             box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
             z-index: 1000;
         }
+
+        .wifi-float-container {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .wifi-details {
+            display: none;
+            background: var(--white);
+            border: 2px solid var(--primary);
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: var(--text-main);
+            min-width: 200px;
+        }
+
+        .wifi-details.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .wifi-btn {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            border: none;
+            font-weight: 700;
+            font-size: 14px;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 6px 15px rgba(15, 23, 42, 0.3);
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
         
         @media (max-width: 600px) {
             .interest-grid { grid-template-columns: 1fr; }
             .service-list li.stack-mobile { flex-direction: column; align-items: flex-start; gap: 4px; }
             .service-list li.stack-mobile .service-price { text-align: left; }
+            /* Ajuste de botones flotantes para móviles muy pequeños */
+            .whatsapp-float, .wifi-btn { padding: 12px 16px; font-size: 13px; }
         }
     </style>
 </head>
@@ -534,6 +585,20 @@
             Para llamadas directas urgentes: 6478-7049
         </div>
 
+    </div>
+
+    <div class="wifi-float-container">
+        <div id="wifi-info" class="wifi-details">
+            <strong style="color: var(--primary-dark); font-size: 15px;">📶 WiFi Gratis en este vehículo</strong>
+            <div style="margin-top: 8px;">
+                <span style="color: #64748b; font-size: 13px;">Red:</span> <strong style="color: var(--primary);">Wifi- Gratis</strong><br>
+                <span style="color: #64748b; font-size: 13px;">Clave:</span> <strong style="color: var(--accent);">12345678</strong>
+            </div>
+        </div>
+        <button class="wifi-btn" onclick="document.getElementById('wifi-info').classList.toggle('active')">
+            <svg style="width:18px;height:18px" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-4.6-4.6l1.4 1.4c1.8-1.8 4.7-1.8 6.5 0l1.4-1.4c-2.5-2.5-6.7-2.5-9.3 0zm-4.2-4.2l1.4 1.4c4.1-4.1 10.7-4.1 14.8 0l1.4-1.4c-4.9-4.9-12.8-4.9-17.6 0zm-4.3-4.3l1.4 1.4c6.4-6.4 16.8-6.4 23.2 0l1.4-1.4c-7.2-7.2-18.9-7.2-26 0z"/></svg>
+            WiFi
+        </button>
     </div>
 
     <a href="https://wa.me/50762464619" class="whatsapp-float" target="_blank">
