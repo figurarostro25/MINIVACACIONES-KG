@@ -2,18 +2,21 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minivacaciones & Destinos | Panamá</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mini-Vac | Transporte y Destinos en Panamá</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --primary-dark: #0f172a; 
             --primary: #1e3a8a; 
             --accent: #0f766e; 
-            --bg-color: #f8fafc; 
+            --accent-gold: #d97706;
+            --bg-color: #f1f5f9; 
             --text-main: #334155;
+            --text-muted: #64748b;
             --white: #ffffff;
-            --light-gray: #f1f5f9;
+            --light-gray: #e2e8f0;
         }
 
         body {
@@ -22,578 +25,504 @@
             color: var(--text-main);
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            line-height: 1.5;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .container {
-            max-width: 700px;
+        /* Contenedor principal simulando pantalla de móvil */
+        .app-container {
+            max-width: 600px;
             margin: 0 auto;
-            padding: 20px;
-            padding-top: 40px; /* Espacio arriba sin la imagen */
-            padding-bottom: 90px;
+            background-color: var(--bg-color);
+            min-height: 100vh;
+            padding-bottom: 100px;
         }
 
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        /* Logo ajustado sin margen negativo */
-        .logo-premium {
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-            color: var(--white);
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            font-weight: 700;
-            margin: 0 auto 15px auto;
-            box-shadow: 0 8px 20px rgba(30,58,138,0.3);
-            border: 4px solid var(--white);
-            position: relative;
-        }
-
-        .title {
-            color: var(--primary-dark);
-            font-size: 24px;
-            font-weight: 800;
-            margin: 0 0 8px 0;
-            letter-spacing: -0.5px;
-        }
-
-        .subtitle {
-            color: #64748b;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
-        /* Botones de Traducción */
-        .translate-container {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 25px;
-        }
-
-        .btn-lang {
-            background: var(--white);
-            border: 1px solid #cbd5e1;
-            padding: 7px 14px;
-            border-radius: 8px;
-            font-family: inherit;
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--text-main);
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        /* Pagos */
-        .payment-banner {
-            background: linear-gradient(135deg, var(--accent), #115e59);
-            color: var(--white);
-            padding: 15px;
-            border-radius: 12px;
-            text-align: center;
-            margin-bottom: 25px;
-            box-shadow: 0 6px 15px rgba(15, 118, 110, 0.15);
-            font-size: 14px;
-        }
-
-        /* Tarjetas de Secciones */
-        .card {
-            background: var(--white);
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
-            margin-bottom: 20px;
-            border-top: 3px solid var(--primary);
-        }
-
-        .card h2 {
-            color: var(--primary);
-            margin-top: 0;
-            font-size: 18px;
-            font-weight: 800;
-            border-bottom: 2px solid var(--light-gray);
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-        }
-
-        /* Acordeones */
-        .accordion {
-            background: var(--light-gray);
-            border-radius: 12px;
-            margin-bottom: 15px;
-            overflow: hidden;
-            border: 1px solid #e2e8f0;
-        }
-
-        .accordion summary {
-            padding: 15px 20px;
-            cursor: pointer;
-            font-weight: 700;
-            color: var(--primary-dark);
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 15px;
-        }
-
-        .accordion summary::after {
-            content: '+';
-            font-size: 18px;
-            color: var(--primary);
-            font-weight: 800;
-        }
-
-        .accordion[open] summary { border-bottom: 1px solid #cbd5e1; }
-        .accordion[open] summary::after { content: '-'; }
-
-        .accordion-content {
-            padding: 15px 20px;
-            font-size: 14px;
-            color: var(--text-main);
-            background: var(--white);
-        }
-
-        .accordion-content p { margin-top: 0; margin-bottom: 10px; text-align: justify; }
-
-        .travel-comfort {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .suv-icon {
-            width: 45px;
-            height: 45px;
-            flex-shrink: 0;
-            fill: var(--primary-dark);
-        }
-
-        /* ESTRUCTURA TIPO APP PARA LISTAS */
-        .service-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .service-list li {
-            padding: 15px 0;
-            border-bottom: 1px solid #e2e8f0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .service-list li:last-child {
-            border-bottom: none;
-        }
-
-        .service-info {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            padding-right: 15px;
-        }
-
-        .service-name {
-            font-weight: 700;
-            color: var(--primary-dark);
-            font-size: 15px;
-            line-height: 1.3;
-        }
-
-        .service-desc {
-            font-size: 12px;
-            color: #64748b;
-            margin-top: 4px;
+        /* Inglés sutil */
+        .en-sub {
+            display: block;
+            color: var(--text-muted);
+            font-size: 0.85em;
+            font-weight: 400;
+            margin-top: 2px;
             line-height: 1.2;
         }
 
-        .service-price {
-            font-weight: 800;
+        /* Traductor Google */
+        .google-translate-wrapper {
+            background: var(--white);
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid var(--light-gray);
+            font-size: 14px;
+        }
+
+        /* Header y Logo */
+        .header {
+            background: var(--white);
+            padding: 20px 20px 25px 20px;
+            text-align: center;
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        .promo-badge {
+            background-color: #fee2e2;
+            color: #b91c1c;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .logo-composite {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
             color: var(--primary);
-            font-size: 20px;
-            white-space: nowrap;
-            text-align: right;
+        }
+
+        .logo-composite svg { width: 28px; height: 28px; fill: currentColor; }
+
+        .title {
+            color: var(--primary-dark);
+            font-size: 28px;
+            font-weight: 800;
+            margin: 0 0 5px 0;
+            letter-spacing: -0.5px;
+        }
+
+        /* Hero Image */
+        .hero-img {
+            width: calc(100% - 40px);
+            margin: 0 20px 20px 20px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Banner de Pagos */
+        .payment-banner {
+            background: linear-gradient(135deg, var(--accent), #115e59);
+            color: var(--white);
+            margin: 0 20px 20px 20px;
+            padding: 16px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(15, 118, 110, 0.2);
+        }
+
+        .payment-banner strong { font-size: 16px; }
+
+        /* Acordeón Premium */
+        .accordion-container {
+            margin: 0 20px 20px 20px;
         }
         
-        .service-price small {
-            font-size: 12px;
-            font-weight: 500;
-            color: #64748b;
+        .accordion {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
+
+        .accordion summary {
+            padding: 18px 20px;
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--primary-dark);
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 16px;
+            background: var(--white);
+        }
+
+        .accordion summary::after {
+            content: '▼';
+            font-size: 14px;
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .accordion[open] summary::after { transform: rotate(180deg); }
+        .accordion[open] summary { border-bottom: 1px solid var(--light-gray); }
+
+        .accordion-content {
+            padding: 20px;
+            font-size: 14.5px;
+            background: #fafafa;
+        }
+
+        .highlight-text {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Slider de Vehículos (Scroll Horizontal) */
+        .section-title {
+            margin: 0 20px 10px 20px;
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+
+        .vehicles-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 15px;
+            padding: 0 20px 20px 20px;
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .vehicles-slider::-webkit-scrollbar { display: none; }
+
+        .vehicle-card {
+            min-width: 260px;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 20px;
+            scroll-snap-align: start;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            border-top: 4px solid var(--primary);
+            position: relative;
+        }
+
+        .vehicle-card.vip { border-top-color: var(--accent-gold); }
+        .vehicle-card.cargo { border-top-color: var(--accent); }
+
+        .v-title { font-size: 18px; font-weight: 800; color: var(--primary-dark); margin: 0 0 5px 0;}
+        .v-rate { color: var(--primary); font-weight: 700; font-size: 15px; margin-bottom: 10px; }
+        .v-desc { font-size: 13px; color: var(--text-muted); margin-bottom: 15px; }
+        .v-price { font-size: 22px; font-weight: 800; }
+
+        /* Lista de Servicios (App Style) */
+        .service-list {
+            background: var(--white);
+            border-radius: 20px;
+            margin: 0 20px 20px 20px;
+            padding: 5px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .service-item {
+            padding: 18px 0;
+            border-bottom: 1px solid var(--light-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .service-item:last-child { border-bottom: none; }
+
+        .s-info { flex: 1; padding-right: 15px; }
+        .s-name { font-weight: 700; color: var(--primary-dark); font-size: 16px; }
+        .s-price { font-weight: 800; color: var(--primary); font-size: 18px; text-align: right; }
+
+        /* Tarjeta Estándar */
+        .card {
+            background: var(--white);
+            border-radius: 20px;
+            margin: 0 20px 20px 20px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .card h3 { margin-top: 0; color: var(--primary-dark); }
 
         /* Botones */
-        .btn-action {
-            display: inline-block;
-            background-color: var(--accent);
-            color: white;
-            padding: 14px 20px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 700;
-            text-align: center;
-            margin-top: 15px;
+        .btn {
+            display: block;
             width: 100%;
-            box-sizing: border-box;
-            transition: background 0.2s ease;
-            font-size: 15px;
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        /* Números de Interés */
-        .interest-section {
-            background: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.02);
-            border: 1px solid #e2e8f0;
-            margin-bottom: 25px;
-        }
-
-        .interest-header {
-            background: var(--primary-dark);
-            color: white;
-            padding: 12px 20px;
-            font-weight: 600;
-            font-size: 15px;
-        }
-
-        .interest-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
+            text-align: center;
             padding: 15px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            box-sizing: border-box;
+            margin-top: 10px;
+            font-size: 16px;
         }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-whatsapp { background: #25D366; color: white; margin-top: 20px;}
 
-        .interest-item {
-            background: var(--light-gray);
-            padding: 10px;
-            border-radius: 8px;
-            border-left: 3px solid var(--primary);
-            display: flex;
-            flex-direction: column;
+        /* Footer y Urgencias */
+        .emergency-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
         }
+        .em-box {
+            background: var(--bg-color);
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .em-name { font-size: 12px; font-weight: 700; color: var(--text-muted); }
+        .em-num { font-size: 18px; font-weight: 800; color: #dc2626; }
 
-        .interest-name { font-size: 11px; font-weight: 600; text-transform: uppercase; }
-        .interest-number { font-size: 16px; color: var(--primary); font-weight: 800; }
-
-        /* Footer */
         .footer {
             text-align: center;
-            padding: 20px 0;
-            color: #64748b;
+            padding: 20px;
+            color: var(--text-muted);
             font-size: 13px;
-            border-top: 1px solid #cbd5e1;
         }
 
-        .footer strong { color: var(--primary-dark); display: block; }
-
-        /* Botones Flotantes (WhatsApp y WiFi) */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #25D366;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
-            z-index: 1000;
-        }
-
-        .wifi-float-container {
+        /* Botón Flotante WiFi */
+        .wifi-float {
             position: fixed;
             bottom: 20px;
             left: 20px;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .wifi-details {
-            display: none;
-            background: var(--white);
-            border: 2px solid #f59e0b; /* Borde naranja */
-            padding: 15px;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            margin-bottom: 12px;
-            font-size: 14px;
-            color: var(--text-main);
-            min-width: 200px;
-        }
-
-        .wifi-details.active {
-            display: block;
-            animation: fadeIn 0.3s ease;
-        }
-
-        /* Botón WiFi COLOR LLAMATIVO */
-        .wifi-btn {
-            background-color: #f59e0b; /* Color Ámbar/Naranja llamativo */
+            background: #f59e0b;
             color: white;
             padding: 12px 20px;
-            border-radius: 50px;
-            border: none;
+            border-radius: 30px;
             font-weight: 700;
-            font-size: 14px;
-            font-family: inherit;
+            box-shadow: 0 6px 15px rgba(245, 158, 11, 0.4);
+            border: none;
             display: flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 6px 15px rgba(245, 158, 11, 0.4);
+            z-index: 100;
             cursor: pointer;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .wifi-modal {
+            display: none;
+            position: fixed;
+            bottom: 70px;
+            left: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            border: 2px solid #f59e0b;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            z-index: 100;
         }
-        
-        @media (max-width: 600px) {
-            .interest-grid { grid-template-columns: 1fr; }
-            /* Ajuste botones flotantes móviles pequeños */
-            .whatsapp-float, .wifi-btn { padding: 12px 16px; font-size: 13px; }
-        }
+        .wifi-modal.active { display: block; }
+
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="google-translate-wrapper">
+        <div id="google_translate_element"></div>
+    </div>
+
+    <div class="app-container">
         
         <div class="header">
-            <div class="logo-premium">M&D</div>
-            <h1 class="title">Minivacaciones & Destinos</h1>
-            <div class="subtitle">Hospedajes • Transporte VIP • Soluciones de Negocio</div>
+            <div class="promo-badge">
+                🚘 Uber Confort con 20% al 35% Descuento
+                <span class="en-sub" style="color: #fca5a5;">Uber Comfort with 20% to 35% Discount</span>
+            </div>
+            
+            <div class="logo-composite">
+                <svg viewBox="0 0 640 512"><path d="M544 192h-16.1l-34.1-68.1c-14-27.9-42.3-46.9-74.8-46.9H160c-32.5 0-60.8 19-74.8 46.9L51.1 192H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h32c0 26.5 21.5 48 48 48s48-21.5 48-48h192c0 26.5 21.5 48 48 48s48-21.5 48-48h32c26.5 0 48-21.5 48-48V240c0-26.5-21.5-48-48-48zM128 448c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32zm352 0c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z"/></svg>
+                <svg viewBox="0 0 576 512"><path d="M482.3 192c34.2 0 93.7 29 93.7 64c0 36-59.5 64-93.7 64l-116.6 0L265.2 495.9c-5.7 10-16.3 16.1-27.8 16.1l-56.2 0c-10.6 0-18.3-10.2-15.4-20.4l49-171.6L112 320 68.8 377.6c-3 4-7.8 6.4-12.8 6.4l-42 0c-7.8 0-14-6.3-14-14c0-1.3 .2-2.6 .5-3.9L32 256 .5 145.9c-.4-1.3-.5-2.6-.5-3.9c0-7.8 6.3-14 14-14l42 0c5 0 9.8 2.4 12.8 6.4L112 192l102.9 0-49-171.6C162.9 10.2 170.6 0 181.2 0l56.2 0c11.5 0 22.1 6.2 27.8 16.1L365.7 192l116.6 0z"/></svg>
+                <svg viewBox="0 0 640 512"><path d="M256 48c0-26.5 21.5-48 48-48h32c26.5 0 48 21.5 48 48v48h-128V48zM92.2 166.5C108.3 147.2 131.6 136 156.4 136H483.6c24.8 0 48.1 11.2 64.2 30.5l45.4 54.5c19.1 22.9 28.1 52.8 25.1 82.5L597 455.5C592.5 487.8 564.9 512 532.3 512H107.7c-32.6 0-60.2-24.2-64.7-56.5L21.7 303.5c-3-29.7 6-59.6 25.1-82.5l45.4-54.5zM224 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm128 0a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm96 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>
+            </div>
+            
+            <h1 class="title">Mini-Vac</h1>
+            <div style="color: var(--text-muted); font-weight: 500;">
+                Transporte & Destinos VIP
+                <span class="en-sub">VIP Transport & Destinations</span>
+            </div>
         </div>
 
-        <div class="translate-container">
-            <button class="btn-lang">🇬🇧 Translate</button>
-            <button class="btn-lang">🇪🇸 Traducir</button>
-        </div>
+        <img src="https://images.unsplash.com/photo-1619767886558-efdc259cde1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="VIP Transport" class="hero-img">
 
         <div class="payment-banner">
-            <strong>¡Acepto pagos con!</strong><br>
-            💳 Visa | 📱 Yappi | 💵 Cash
+            <strong>Aceptamos Pagos con:</strong><br>
+            Tarjeta de Crédito, Transferencia, Yappi y Cash
+            <span class="en-sub" style="color: #ccfbf1; margin-top: 5px;">We accept Credit Card, Bank Transfer, Yappi and Cash</span>
         </div>
 
-        <details class="accordion">
-            <summary>¡Damas y caballeros, bienvenidos a Panamá!</summary>
-            <div class="accordion-content">
-                <p>Mi nombre es Gasper Rodriguez, y estoy aquí para que su experiencia sea cómoda, fluida y bien acompañada, ya sea por turismo o negocios.</p>
-                <p>Pueden contar conmigo como su apoyo local: traslados, recorridos, orientación en la ciudad o simplemente alguien de confianza con quien conversar.</p>
-                <p>Cuento con un perfil integral enfocado en soluciones: desarrollo sitios web en tiempo récord, brindo asesoría en ventas y negocios, resolución de problemas y acompañamiento.</p>
-                <p style="text-align: center; font-weight: 700; margin-top: 15px; color: var(--primary-dark);">Estoy aquí para ayudarte. Bienvenido, cuenta conmigo 🤝</p>
-            </div>
-        </details>
-
-        <div class="card">
-            <h2>Viaja Cómodo</h2>
-            <div class="travel-comfort">
-                <svg class="suv-icon" viewBox="0 0 640 512"><path d="M544 192h-16.1l-34.1-68.1c-14-27.9-42.3-46.9-74.8-46.9H160c-32.5 0-60.8 19-74.8 46.9L51.1 192H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h32c0 26.5 21.5 48 48 48s48-21.5 48-48h192c0 26.5 21.5 48 48 48s48-21.5 48-48h32c26.5 0 48-21.5 48-48V240c0-26.5-21.5-48-48-48zM128 448c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32zm160-160H112l32-64h144zm0 64H112l32-64h144zm192 128c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32zm32-128H352l32-64h144zm0 64H352l32-64h144z"/></svg>
-                <p style="margin: 0; font-size: 14px;"><strong>Uber Confort: Toyota Corolla 2025.</strong> Camioneta con suspensión más silenciosa y más capacidad de peso y confort.</p>
-            </div>
+        <div class="accordion-container">
+            <details class="accordion">
+                <summary>
+                    <div>
+                        Bienvenidos a Panamá, haz clic para conocer más de mí.
+                        <span class="en-sub">Welcome to Panama, click to know more about me.</span>
+                    </div>
+                </summary>
+                <div class="accordion-content">
+                    <p>Mi nombre es <strong>Gasper Rodriguez</strong>, dueño de Mini-Vac. Soy una persona muy humana, con gran potencial y hago este negocio para expandir mis amistades y conexiones empresariales.</p>
+                    <p>Cuenten conmigo como su apoyo local: traslados, recorridos, orientación en la ciudad o simplemente alguien de confianza con quien conversar.</p>
+                    <p><strong>El auto está 100% disponible al instante.</strong> Atención exclusiva e inmediata. Precio según sus necesidades (Negociable).</p>
+                    <p class="en-sub" style="margin-top: 15px; text-align: justify;">
+                        My name is Gasper Rodriguez, owner of Mini-Vac. I am a very human person, doing this business to expand friendships and business connections. Count on me as your local support. The car is 100% available instantly.
+                    </p>
+                </div>
+            </details>
         </div>
 
-        <div class="card">
-            <h2 style="margin-bottom: 5px;">🛻 Transporte y Tours</h2>
+        <div class="section-title">
+            Opciones de Vehículos
+            <span class="en-sub">Vehicle Options</span>
+        </div>
+
+        <div class="vehicles-slider">
             
-            <ul class="service-list" style="margin-bottom: 20px;">
-                
-                <li>
-                    <div class="service-info">
-                        <span class="service-name">Traslado Aeropuerto</span>
-                        <span class="service-desc">Vehículo Confort. Retorno a ciudad $10</span>
-                    </div>
-                    <span class="service-price">$25 <small>+ fee</small></span>
-                </li>
-
-                <li>
-                    <div class="service-info">
-                        <span class="service-name">Isla Perico (Amador)</span>
-                        <span class="service-desc">Ida</span>
-                    </div>
-                    <span class="service-price">$8</span>
-                </li>
-
-                <li>
-                    <div class="service-info">
-                        <span class="service-name">Esclusas Miraflores</span>
-                        <span class="service-desc">Ida y retorno</span>
-                    </div>
-                    <span class="service-price">$16</span>
-                </li>
-
-                <li>
-                    <div class="service-info">
-                        <span class="service-name">Veracruz</span>
-                        <span class="service-desc">Ida y vuelta</span>
-                    </div>
-                    <span class="service-price">$22</span>
-                </li>
-
-                <li>
-                    <div class="service-info">
-                        <span class="service-name">Colón 2000 o Z. Libre</span>
-                        <span class="service-desc">Desde</span>
-                    </div>
-                    <span class="service-price">$85</span>
-                </li>
-
-                <li>
-                    <div class="service-info">
-                        <span class="service-name">Valle de Antón</span>
-                        <span class="service-desc">Desde</span>
-                    </div>
-                    <span class="service-price">$110</span>
-                </li>
-
-                <li>
-                    <div class="service-info">
-                        <span class="service-name">Día Playa Sta. Clara</span>
-                        <span class="service-desc">Desde</span>
-                    </div>
-                    <span class="service-price">$125</span>
-                </li>
-
-                <li>
-                    <div class="service-info">
-                        <span class="service-name">Tours Chiriquí (2-3 d.)</span>
-                        <span class="service-desc">+ Combustible, hospedaje y comida</span>
-                    </div>
-                    <span class="service-price">$80 <small>/día</small></span>
-                </li>
-
-                <li>
-                    <div class="service-info">
-                        <span class="service-name">Bocas del Toro</span>
-                        <span class="service-desc">+ Combustible y costos</span>
-                    </div>
-                    <span class="service-price">$80 <small>/día</small></span>
-                </li>
-                
-                <li>
-                    <div class="service-info">
-                        <span class="service-name">Traslado 4x4 (Carga)</span>
-                        <span class="service-desc">En ciudad. Desde</span>
-                    </div>
-                    <span class="service-price">$25</span>
-                </li>
-            </ul>
-
-            <details class="accordion">
-                <summary>💆‍♂️ Bienestar y Estética</summary>
-                <div class="accordion-content">
-                    <ul class="service-list">
-                        <li>
-                            <div class="service-info"><span class="service-name">Masajes Relajantes</span><span class="service-desc">30 min</span></div>
-                            <span class="service-price">$35</span>
-                        </li>
-                        <li>
-                            <div class="service-info"><span class="service-name">Masajes Relajantes</span><span class="service-desc">60 min</span></div>
-                            <span class="service-price">$65</span>
-                        </li>
-                        <li>
-                            <div class="service-info"><span class="service-name">Limpiezas faciales</span><span class="service-desc">Desde</span></div>
-                            <span class="service-price">$35</span>
-                        </li>
-                        <li>
-                            <div class="service-info"><span class="service-name">Masaje Reductor</span><span class="service-desc">Con hidrolipoclasia</span></div>
-                            <span class="service-price">$200</span>
-                        </li>
-                    </ul>
+            <div class="vehicle-card">
+                <h3 class="v-title">Toyota Yaris 2024</h3>
+                <div class="v-rate">Tarifa: Uber Priority</div>
+                <div class="v-desc">
+                    Sedán Standard Nuevo. Incluye acompañamiento y atención exclusiva.
+                    <span class="en-sub">New Standard Sedan. Includes escort and exclusive attention.</span>
                 </div>
-            </details>
+                <div class="v-price">$12 <span style="font-size:14px; font-weight:500; color:var(--text-muted)">/ hora (hour)</span></div>
+            </div>
 
-            <details class="accordion">
-                <summary>🎧 Tecnología y Equipos</summary>
-                <div class="accordion-content">
-                    <ul class="service-list">
-                        <li>
-                            <div class="service-info">
-                                <span class="service-name">Bocina piscina</span>
-                                <span class="service-desc">Resistente agua + micro</span>
-                            </div>
-                            <span class="service-price">$25</span>
-                        </li>
-                        <li>
-                            <div class="service-info">
-                                <span class="service-name">Combo Dúo Poder</span>
-                                <span class="service-desc">Alta batería y sonido</span>
-                            </div>
-                            <span class="service-price">$55</span>
-                        </li>
-                    </ul>
-                    <p style="font-size: 12px; color: #64748b; margin-top: 15px; text-align: center;"><em>Audífonos y PC: Venta por pedido. Entrega L-V de 8am a 2pm.</em></p>
+            <div class="vehicle-card vip">
+                <h3 class="v-title">Toyota Corolla Cross 2025</h3>
+                <div class="v-rate">Tarifa: Uber Confort (-25/30%)</div>
+                <div class="v-desc">
+                    Camioneta SUV. Suspensión silenciosa, mayor capacidad y máximo confort VIP.
+                    <span class="en-sub">SUV. Quiet suspension, more capacity and maximum VIP comfort.</span>
                 </div>
-            </details>
+                <div class="v-price">$15 <span style="font-size:14px; font-weight:500; color:var(--text-muted)">/ hora (hour)</span></div>
+            </div>
+
+            <div class="vehicle-card cargo">
+                <h3 class="v-title">Mitsubishi L200 4x4</h3>
+                <div class="v-rate">Tarifa: Uber Confort / Black</div>
+                <div class="v-desc">
+                    Doble Cabina Nueva 2024. Ideal para traslado de mercancía más pesada.
+                    <span class="en-sub">New Double Cabin 2024. Ideal for heavier freight transfer.</span>
+                </div>
+                <div class="v-price">Variable <span style="font-size:14px; font-weight:500; color:var(--text-muted)">según uso</span></div>
+            </div>
+
         </div>
 
-        <div class="card" style="text-align: center;">
-            <h2>Consulta tarifas con Gasper</h2>
-            <p style="font-size: 14px; margin-bottom: 20px;">Me puedes chatear con tranquilidad y confianza, te atenderé cordialmente. No siempre se gana dinero, también se gana amistad y gratitud.<br><br><em>Si hablas español o si hablas poquito español me llamas o escribes.</em></p>
-            <a href="https://wa.me/50762464619" class="btn-action btn-outline" target="_blank">¿Deseas chatear con alguien?</a>
-            <a href="https://wa.me/50762464619" class="btn-action" target="_blank" style="background-color: var(--primary);">Hablar con Gasper</a>
+        <div class="section-title" style="margin-top: 10px;">
+            Tarifas y Servicios Especiales
+            <span class="en-sub">Rates and Special Services</span>
         </div>
 
-        <div class="interest-section">
-            <div class="interest-header">📱 Números de Interés (Panamá)</div>
-            <div class="interest-grid">
-                <div class="interest-item"><span class="interest-name">Policía Nacional</span> <span class="interest-number">104</span></div>
-                <div class="interest-item"><span class="interest-name">Ambulancia (SUME)</span> <span class="interest-number">911</span></div>
-                <div class="interest-item"><span class="interest-name">Bomberos</span> <span class="interest-number">103</span></div>
-                <div class="interest-item"><span class="interest-name">Protección Civil</span> <span class="interest-number">335</span></div>
+        <div class="service-list">
+            <div class="service-item">
+                <div class="s-info">
+                    <div class="s-name">Contratación por Hora<span class="en-sub">Hourly Hire</span></div>
+                    <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">+ Combustible (Fuel)</div>
+                </div>
+                <div class="s-price">$15</div>
+            </div>
+            <div class="service-item">
+                <div class="s-info">
+                    <div class="s-name">Contratación por Día<span class="en-sub">Daily Hire (Day/Night)</span></div>
+                    <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Negociable + Combustible</div>
+                </div>
+                <div class="s-price">$60 - $100</div>
+            </div>
+            <div class="service-item">
+                <div class="s-info">
+                    <div class="s-name">Traslado Aeropuerto<span class="en-sub">Airport Transfer</span></div>
+                    <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Según área (Depending on area)</div>
+                </div>
+                <div class="s-price">$25 - $35</div>
+            </div>
+            <div class="service-item">
+                <div class="s-info">
+                    <div class="s-name">Acompañamiento<span class="en-sub">Youth / Seniors Escort</span></div>
+                    <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Adultos mayores, menores, etc.</div>
+                </div>
+                <div class="s-price">$15 - $20 <span style="font-size:12px; font-weight:500; color:var(--text-muted)">/hr</span></div>
+            </div>
+            <div class="service-item">
+                <div class="s-info">
+                    <div class="s-name">Traslado de Mercancía<span class="en-sub">Freight Transfer</span></div>
+                </div>
+                <div class="s-price" style="font-size: 14px;">Consultar</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>🤝 Más que un viaje <span class="en-sub">More than a trip</span></h3>
+            
+            <div style="margin-bottom: 15px;">
+                <strong style="color: var(--primary);">🛍️ Lugares de Compra:</strong> Consulta con Gaspar, él te indicará según lo que buscas.
+                <span class="en-sub">Shopping places: Ask Gaspar, he will guide you.</span>
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <strong style="color: var(--primary);">💼 Haz Negocios:</strong> ¿Terminó tu viaje y quieres consultar algo? ¿Quieres tomar algo y conversar? ¡Gasper te acompaña (tú invitas)! Dile a qué te dedicas, puedes hacer networking o encontrar soluciones para tu negocio.
+                <span class="en-sub">Business & Networking: Have a drink, talk about business, find solutions.</span>
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <strong style="color: var(--primary);">💆‍♂️ Bienestar y Spa:</strong> Ofrecemos Masajes relajantes, tratamientos de rejuvenecimiento y reservas de hoteles online a los mejores precios directo con Gasper.
+                <span class="en-sub">Wellness & Spa: Relaxing massages, rejuvenation, hotel booking.</span>
+            </div>
+
+            <div>
+                <strong style="color: var(--accent-gold);">❤️ Apoyo Emocional:</strong> ¿Te sientes enfermo, con mal estado emocional o súper feliz? Llama a Gasper. No todo es dinero, también se ganan amistades. ¡Llámalo con confianza!
+                <span class="en-sub">Emotional Support: Feeling down or super happy? Call Gasper, he's a friend.</span>
+            </div>
+
+            <a href="https://wa.me/50762464619" class="btn btn-whatsapp" target="_blank">
+                📱 Chat con Gasper (WhatsApp)
+            </a>
+        </div>
+
+        <div class="card" style="background: var(--primary-dark); color: white; margin-bottom: 0;">
+            <h3 style="color: white; margin-bottom: 5px;">🚨 Urgencias / Emergencies</h3>
+            <p style="font-size: 14px; margin-top: 0; color: #cbd5e1;">
+                Contacta a Gasper por llamada al: <strong style="color: #fca5a5;">6478-7049</strong>
+            </p>
+            
+            <div class="emergency-grid">
+                <div class="em-box">
+                    <div class="em-name">Policía / Police</div>
+                    <div class="em-num">104</div>
+                </div>
+                <div class="em-box">
+                    <div class="em-name">Ambulancia / Med</div>
+                    <div class="em-num">911</div>
+                </div>
             </div>
         </div>
 
         <div class="footer">
-            <strong>Minivacaciones & Destinos</strong>
-            Para llamadas directas urgentes: 6478-7049
+            <strong>Mini-Vac</strong><br>
+            Ciudad Panamá, Panamá<br>
+            <span class="en-sub">Panama City, Panama</span>
         </div>
 
     </div>
 
-    <div class="wifi-float-container">
-        <div id="wifi-info" class="wifi-details">
-            <strong style="color: var(--primary-dark); font-size: 15px;">📶 WiFi Gratis en este vehículo</strong>
-            <div style="margin-top: 8px;">
-                <span style="color: #64748b; font-size: 13px;">Red:</span> <strong style="color: var(--primary);">Wifi- Gratis</strong><br>
-                <span style="color: #64748b; font-size: 13px;">Clave:</span> <strong style="color: var(--accent);">12345678</strong>
-            </div>
-            <p style="margin-top: 10px; font-style: italic; color: #64748b;">(Si necesitas una laptop me avisas)</p>
+    <button class="wifi-float" onclick="document.getElementById('wifiModal').classList.toggle('active')">
+        <svg style="width:20px;height:20px" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-4.6-4.6l1.4 1.4c1.8-1.8 4.7-1.8 6.5 0l1.4-1.4c-2.5-2.5-6.7-2.5-9.3 0zm-4.2-4.2l1.4 1.4c4.1-4.1 10.7-4.1 14.8 0l1.4-1.4c-4.9-4.9-12.8-4.9-17.6 0zm-4.3-4.3l1.4 1.4c6.4-6.4 16.8-6.4 23.2 0l1.4-1.4c-7.2-7.2-18.9-7.2-26 0z"/></svg>
+        WiFi
+    </button>
+
+    <div id="wifiModal" class="wifi-modal">
+        <strong style="color: var(--primary-dark);">📶 WiFi Gratis (Free WiFi)</strong>
+        <div style="margin-top: 8px; font-size: 14px;">
+            <span style="color: var(--text-muted);">Red (Network):</span> <strong>Wifi- Gratis</strong><br>
+            <span style="color: var(--text-muted);">Clave (Password):</span> <strong style="color: var(--accent-gold);">12345678</strong>
         </div>
-        <button class="wifi-btn" onclick="document.getElementById('wifi-info').classList.toggle('active')">
-            <svg style="width:18px;height:18px" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-4.6-4.6l1.4 1.4c1.8-1.8 4.7-1.8 6.5 0l1.4-1.4c-2.5-2.5-6.7-2.5-9.3 0zm-4.2-4.2l1.4 1.4c4.1-4.1 10.7-4.1 14.8 0l1.4-1.4c-4.9-4.9-12.8-4.9-17.6 0zm-4.3-4.3l1.4 1.4c6.4-6.4 16.8-6.4 23.2 0l1.4-1.4c-7.2-7.2-18.9-7.2-26 0z"/></svg>
-            WiFi
-        </button>
+        <p style="margin-top: 8px; font-size: 12px; font-style: italic; color: var(--text-muted); margin-bottom: 0;">
+            Si necesitas laptop, avísame. <br>(Let me know if you need a laptop).
+        </p>
     </div>
 
-    <a href="https://wa.me/50762464619" class="whatsapp-float" target="_blank">
-        <svg style="width:18px;height:18px" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.18 3.03 14.69 2 12.04 2m0 1.88c2.15 0 4.17.84 5.7 2.36a8.03 8.03 0 0 1 2.33 5.67c0 4.44-3.61 8.05-8.03 8.05-1.46 0-2.89-.4-4.13-1.15l-.3-.18-3.07.81.82-2.99-.19-.31a8.04 8.04 0 0 1-1.18-4.22c0-4.44 3.6-8.04 8.05-8.04m-3.46 4.3c-.13 0-.31.05-.48.23-.17.18-.65.63-.65 1.54 0 .92.67 1.8.76 1.93.09.12 1.3 2.05 3.19 2.87.45.2.8.31 1.07.4.45.14.86.12 1.18.07.36-.05 1.1-.45 1.26-.88.15-.43.15-.81.11-.88-.04-.07-.16-.12-.33-.21-.17-.08-1.1-.54-1.27-.6-.17-.06-.29-.08-.42.08-.12.17-.48.6-.59.72-.11.13-.22.14-.39.06-.17-.08-.71-.26-1.35-.83-.5-.45-.83-.99-.93-1.16-.1-.17-.01-.26.08-.35.08-.08.17-.2.25-.29.08-.1.11-.17.16-.29.05-.12.03-.23-.01-.32-.04-.09-.42-1.01-.58-1.38-.15-.37-.32-.32-.42-.32z"/></svg>
-        Chat por WhatsApp
-    </a>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
