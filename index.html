@@ -29,7 +29,7 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* Contenedor principal simulando pantalla de móvil */
+        /* Contenedor principal */
         .app-container {
             max-width: 600px;
             margin: 0 auto;
@@ -38,7 +38,6 @@
             padding-bottom: 100px;
         }
 
-        /* Inglés sutil */
         .en-sub {
             display: block;
             color: var(--text-muted);
@@ -48,7 +47,6 @@
             line-height: 1.2;
         }
 
-        /* Traductor Google */
         .google-translate-wrapper {
             background: var(--white);
             padding: 10px;
@@ -57,7 +55,6 @@
             font-size: 14px;
         }
 
-        /* Header y Logo */
         .header {
             background: var(--white);
             padding: 20px 20px 25px 20px;
@@ -98,17 +95,48 @@
             letter-spacing: -0.5px;
         }
 
-        /* Hero Image */
-        .hero-img {
-            width: calc(100% - 40px);
+        /* COLLAGE DE VEHÍCULOS (NUEVO) */
+        .hero-collage {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 200px 140px;
+            gap: 10px;
             margin: 0 20px 20px 20px;
-            height: 200px;
-            object-fit: cover;
             border-radius: 20px;
+            overflow: hidden;
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
 
-        /* Banner de Pagos */
+        .hero-collage img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background-color: var(--light-gray);
+        }
+
+        .hero-main {
+            grid-column: 1 / -1;
+            grid-row: 1;
+            position: relative;
+        }
+
+        .hero-sub {
+            position: relative;
+        }
+
+        .car-badge {
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            background: rgba(0,0,0,0.75);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            backdrop-filter: blur(4px);
+        }
+
         .payment-banner {
             background: linear-gradient(135deg, var(--accent), #115e59);
             color: var(--white);
@@ -121,10 +149,7 @@
 
         .payment-banner strong { font-size: 16px; }
 
-        /* Acordeón Premium */
-        .accordion-container {
-            margin: 0 20px 20px 20px;
-        }
+        .accordion-container { margin: 0 20px 20px 20px; }
         
         .accordion {
             background: var(--white);
@@ -162,12 +187,7 @@
             background: #fafafa;
         }
 
-        .highlight-text {
-            color: var(--primary);
-            font-weight: 700;
-        }
-
-        /* Slider de Vehículos (Scroll Horizontal) */
+        /* LISTA DE VEHÍCULOS (Apilados verticalmente) */
         .section-title {
             margin: 0 20px 10px 20px;
             font-size: 20px;
@@ -175,23 +195,17 @@
             color: var(--primary-dark);
         }
 
-        .vehicles-slider {
+        .vehicles-grid {
             display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
+            flex-direction: column;
             gap: 15px;
             padding: 0 20px 20px 20px;
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
         }
-        .vehicles-slider::-webkit-scrollbar { display: none; }
 
         .vehicle-card {
-            min-width: 260px;
             background: var(--white);
             border-radius: 20px;
             padding: 20px;
-            scroll-snap-align: start;
             box-shadow: 0 4px 15px rgba(0,0,0,0.04);
             border-top: 4px solid var(--primary);
             position: relative;
@@ -205,7 +219,27 @@
         .v-desc { font-size: 13px; color: var(--text-muted); margin-bottom: 15px; }
         .v-price { font-size: 22px; font-weight: 800; }
 
-        /* Lista de Servicios (App Style) */
+        /* Botón Solicitar Vehículo (NUEVO) */
+        .btn-request {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: #25D366; 
+            color: white;
+            padding: 12px 15px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 15px;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
+            transition: opacity 0.2s;
+        }
+        .btn-request:active { opacity: 0.8; }
+
         .service-list {
             background: var(--white);
             border-radius: 20px;
@@ -227,7 +261,6 @@
         .s-name { font-weight: 700; color: var(--primary-dark); font-size: 16px; }
         .s-price { font-weight: 800; color: var(--primary); font-size: 18px; text-align: right; }
 
-        /* Tarjeta Estándar */
         .card {
             background: var(--white);
             border-radius: 20px;
@@ -238,7 +271,6 @@
 
         .card h3 { margin-top: 0; color: var(--primary-dark); }
 
-        /* Botones */
         .btn {
             display: block;
             width: 100%;
@@ -251,10 +283,8 @@
             margin-top: 10px;
             font-size: 16px;
         }
-        .btn-primary { background: var(--primary); color: white; }
-        .btn-whatsapp { background: #25D366; color: white; margin-top: 20px;}
+        .btn-whatsapp-block { background: #25D366; color: white; margin-top: 20px;}
 
-        /* Footer y Urgencias */
         .emergency-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -277,7 +307,7 @@
             font-size: 13px;
         }
 
-        /* Botón Flotante WiFi */
+        /* Flotantes */
         .wifi-float {
             position: fixed;
             bottom: 20px;
@@ -292,9 +322,29 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            z-index: 100;
+            z-index: 1000;
             cursor: pointer;
         }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: transform 0.2s;
+        }
+
+        .whatsapp-float:active { transform: scale(0.95); }
 
         .wifi-modal {
             display: none;
@@ -306,7 +356,7 @@
             border-radius: 15px;
             border: 2px solid #f59e0b;
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            z-index: 100;
+            z-index: 1000;
         }
         .wifi-modal.active { display: block; }
 
@@ -339,7 +389,20 @@
             </div>
         </div>
 
-        <img src="https://www.elcarrocolombiano.com/wp-content/uploads/2024/04/20240422-TOYOTA-COROLLA-CROSS-2025-AA.jpg" onerror="this.src='https://www.elcarrocolombiano.com/wp-content/uploads/2024/03/20240328-TOYOTA-COROLLA-CROSS-2025-AMERICA-LATINA-01.jpg';" alt="Toyota Corolla Cross 2025 Gris" class="hero-img">
+        <div class="hero-collage">
+            <div class="hero-main">
+                <img src="https://www.elcarrocolombiano.com/wp-content/uploads/2024/04/20240422-TOYOTA-COROLLA-CROSS-2025-AA.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/2021_Toyota_Corolla_Cross_1.8_Hybrid_Premium_Safety_%28ZVG10R%29_front_view_01.png/800px-2021_Toyota_Corolla_Cross_1.8_Hybrid_Premium_Safety_%28ZVG10R%29_front_view_01.png';" alt="Toyota Corolla Cross 2025 Gris">
+                <div class="car-badge">Corolla Cross</div>
+            </div>
+            <div class="hero-sub">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/2023_Toyota_Yaris_1.5_G_front_view_%28NGC100R%29.jpg/800px-2023_Toyota_Yaris_1.5_G_front_view_%28NGC100R%29.jpg" alt="Toyota Yaris Blanco">
+                <div class="car-badge">Yaris 2024</div>
+            </div>
+            <div class="hero-sub">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/2019_Mitsubishi_L200_Warrior_DI-D_4x4_2.2.jpg/800px-2019_Mitsubishi_L200_Warrior_DI-D_4x4_2.2.jpg" alt="Mitsubishi L200 Gris">
+                <div class="car-badge">L200 4x4</div>
+            </div>
+        </div>
 
         <div class="payment-banner">
             <strong>Aceptamos Pagos con:</strong><br>
@@ -371,7 +434,7 @@
             <span class="en-sub">Vehicle Options</span>
         </div>
 
-        <div class="vehicles-slider">
+        <div class="vehicles-grid">
             
             <div class="vehicle-card">
                 <h3 class="v-title">Toyota Yaris 2024</h3>
@@ -381,6 +444,11 @@
                     <span class="en-sub">New Standard Sedan. Includes escort and exclusive attention.</span>
                 </div>
                 <div class="v-price">$12 <span style="font-size:14px; font-weight:500; color:var(--text-muted)">/ hora (hour)</span></div>
+                
+                <a href="https://wa.me/50762464619?text=Hola%20Gasper,%20me%20interesa%20reservar%20el%20Toyota%20Yaris%202024" class="btn-request" target="_blank">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.18 3.03 14.69 2 12.04 2m0 1.88c2.15 0 4.17.84 5.7 2.36a8.03 8.03 0 0 1 2.33 5.67c0 4.44-3.61 8.05-8.03 8.05-1.46 0-2.89-.4-4.13-1.15l-.3-.18-3.07.81.82-2.99-.19-.31a8.04 8.04 0 0 1-1.18-4.22c0-4.44 3.6-8.04 8.05-8.04"/></svg>
+                    Solicitar Vehículo
+                </a>
             </div>
 
             <div class="vehicle-card vip">
@@ -391,6 +459,11 @@
                     <span class="en-sub">SUV. Quiet suspension, more capacity and maximum VIP comfort.</span>
                 </div>
                 <div class="v-price">$15 <span style="font-size:14px; font-weight:500; color:var(--text-muted)">/ hora (hour)</span></div>
+                
+                <a href="https://wa.me/50762464619?text=Hola%20Gasper,%20me%20interesa%20reservar%20el%20Toyota%20Corolla%20Cross%20VIP" class="btn-request" target="_blank">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.18 3.03 14.69 2 12.04 2m0 1.88c2.15 0 4.17.84 5.7 2.36a8.03 8.03 0 0 1 2.33 5.67c0 4.44-3.61 8.05-8.03 8.05-1.46 0-2.89-.4-4.13-1.15l-.3-.18-3.07.81.82-2.99-.19-.31a8.04 8.04 0 0 1-1.18-4.22c0-4.44 3.6-8.04 8.05-8.04"/></svg>
+                    Solicitar Vehículo
+                </a>
             </div>
 
             <div class="vehicle-card cargo">
@@ -401,6 +474,11 @@
                     <span class="en-sub">New Double Cabin 2024. Ideal for heavier freight transfer.</span>
                 </div>
                 <div class="v-price">Variable <span style="font-size:14px; font-weight:500; color:var(--text-muted)">según uso</span></div>
+                
+                <a href="https://wa.me/50762464619?text=Hola%20Gasper,%20me%20interesa%20el%20servicio%20de%20carga%20con%20el%20Mitsubishi%20L200" class="btn-request" target="_blank">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.18 3.03 14.69 2 12.04 2m0 1.88c2.15 0 4.17.84 5.7 2.36a8.03 8.03 0 0 1 2.33 5.67c0 4.44-3.61 8.05-8.03 8.05-1.46 0-2.89-.4-4.13-1.15l-.3-.18-3.07.81.82-2.99-.19-.31a8.04 8.04 0 0 1-1.18-4.22c0-4.44 3.6-8.04 8.05-8.04"/></svg>
+                    Solicitar Vehículo
+                </a>
             </div>
 
         </div>
@@ -470,7 +548,7 @@
                 <span class="en-sub">Emotional Support: Feeling down or super happy? Call Gasper, he's a friend.</span>
             </div>
 
-            <a href="https://wa.me/50762464619" class="btn btn-whatsapp" target="_blank">
+            <a href="https://wa.me/50762464619" class="btn btn-whatsapp-block" target="_blank">
                 📱 Chat con Gasper (WhatsApp)
             </a>
         </div>
@@ -516,6 +594,11 @@
             Si necesitas laptop, avísame. <br>(Let me know if you need a laptop).
         </p>
     </div>
+
+    <a href="https://wa.me/50762464619" class="whatsapp-float" target="_blank">
+        <svg style="width:22px;height:22px" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.18 3.03 14.69 2 12.04 2m0 1.88c2.15 0 4.17.84 5.7 2.36a8.03 8.03 0 0 1 2.33 5.67c0 4.44-3.61 8.05-8.03 8.05-1.46 0-2.89-.4-4.13-1.15l-.3-.18-3.07.81.82-2.99-.19-.31a8.04 8.04 0 0 1-1.18-4.22c0-4.44 3.6-8.04 8.05-8.04m-3.46 4.3c-.13 0-.31.05-.48.23-.17.18-.65.63-.65 1.54 0 .92.67 1.8.76 1.93.09.12 1.3 2.05 3.19 2.87.45.2.8.31 1.07.4.45.14.86.12 1.18.07.36-.05 1.1-.45 1.26-.88.15-.43.15-.81.11-.88-.04-.07-.16-.12-.33-.21-.17-.08-1.1-.54-1.27-.6-.17-.06-.29-.08-.42.08-.12.17-.48.6-.59.72-.11.13-.22.14-.39.06-.17-.08-.71-.26-1.35-.83-.5-.45-.83-.99-.93-1.16-.1-.17-.01-.26.08-.35.08-.08.17-.2.25-.29.08-.1.11-.17.16-.29.05-.12.03-.23-.01-.32-.04-.09-.42-1.01-.58-1.38-.15-.37-.32-.32-.42-.32z"/></svg>
+        Chat
+    </a>
 
     <script type="text/javascript">
         function googleTranslateElementInit() {
